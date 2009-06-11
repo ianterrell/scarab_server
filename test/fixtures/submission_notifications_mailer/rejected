@@ -1,0 +1,3 @@
+SubmissionNotificationsMailer#rejected
+
+Find me in app/views/submission_notifications_mailer/rejected.erb

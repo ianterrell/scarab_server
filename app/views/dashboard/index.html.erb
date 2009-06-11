@@ -1,0 +1,37 @@
+<h2>My Submissions</h2>
+
+<% if @works.empty? %>
+  <p>
+    You haven't submitted any works yet!  <%= link_to "Submit one here!", submit_work_path %>
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Submitted</th>
+      <th>Status</th>
+    </tr>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= truncate work.title, :length => 100 %></td>
+        <td><%= time_ago_in_words work.created_at %> ago</td>
+        <td><%= work.state_for_display %></td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div style="display:none;" id="state_explanation">
+    <ul>
+      <li><b>First Reading</b>:  This work is currently being read by our editors.</li>
+      <li><b>Second Reading</b>:  This work has passed a first reading and is in the final selection for publication.</li>
+      <li><b>Rejected</b>:  This work is no longer being considered for publication.  Please submit again though!</li>
+      <li><b>Accepted</b>:  This work will be published in an upcoming issue!</li>
+  </div>
+  <%= link_to_function("What do the different statuses mean?") { |page| page.visual_effect :toggle_appear, "state_explanation" }%>
+  
+  <%= will_paginate @works %>
+<% end %>
+
+<%= render :partial => "users/promising_contributor" %>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

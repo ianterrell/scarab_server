@@ -1,0 +1,33 @@
+<h2>Sign up!</h2>
+
+<p>
+  You need to have an account with us to contribute.  Please sign up below.  
+  After you submit this form, we'll send you a note to confirm your email address, 
+  and then you can log in.
+</p>
+
+<% form_for :user, @user || User.new, :url => users_path do |f| -%>
+
+<div>
+  <%= f.label :email %>
+  <br/>
+  <%= f.text_field :email, :class => "text" %>
+  <%= f.error_message_on :email %>
+</div>
+
+<div>
+  <%= f.label :password %>
+  <br/>
+  <%= f.password_field :password, :class => "text" %>
+  <%= f.error_message_on :password %>
+</div>
+
+<div>
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <br/>
+  <%= f.password_field :password_confirmation, :class => "text" %>
+  <%= f.error_message_on :password_confirmation %>
+</div>
+
+<p><%= submit_tag 'Sign up', :class => "button" %></p>
+<% end -%>

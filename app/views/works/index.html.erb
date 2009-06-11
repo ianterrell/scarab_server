@@ -1,0 +1,40 @@
+<% if @works.empty? %>
+  <p>
+    There aren't any works<% unless params[:state].blank? %> marked as <%= params[:state].titleize %><% end %>.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Submitted</th>
+      <% if params[:state] == "second_reading" %>
+        <th>Promoted</th>
+      <% elsif params[:state] == "rejected" %>
+        <th>Rejected</th>
+      <% elsif params[:state] == "accepted" %>
+        <th>Accepted</th>
+      <% elsif params[:state].blank? %>
+        <th>Status</th>
+      <% end %>
+    </tr>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= link_to truncate(work.title, :length => 100), work_path(work) %></td>
+        <td><%= work.attribution %></td>
+        <td><%= time_ago_in_words work.created_at %> ago</td>
+        <% if params[:state] == "second_reading" %>
+          <td><%= work.promoted_at == work.created_at ? "automatically" : "#{time_ago_in_words(work.promoted_at)} ago" %></td>
+        <% elsif params[:state] == "rejected" %>
+          <td><%= time_ago_in_words work.rejected_at %> ago</td>
+        <% elsif params[:state] == "accepted" %>
+          <td><%= time_ago_in_words work.accepted_at %> ago</td>
+        <% elsif params[:state].blank? %>
+          <td><%= work.state_for_display %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= will_paginate @works %>
+<% end %>

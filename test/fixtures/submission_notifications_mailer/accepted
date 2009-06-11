@@ -1,0 +1,3 @@
+SubmissionNotificationsMailer#accepted
+
+Find me in app/views/submission_notifications_mailer/accepted.erb

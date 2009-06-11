@@ -1,0 +1,27 @@
+<h2>Reset password</h2>
+
+<% form_for :user, @user do |f| -%>
+
+<div>
+  <%= f.label :email %>
+  <br/>
+  <%= f.text_field :email, :class => "text" %>
+  <%= f.error_message_on :email %>
+</div>
+
+<div>
+  <%= f.label :password %>
+  <br/>
+  <%= f.password_field :password, :class => "text" %>
+  <%= f.error_message_on :password %>
+</div>
+
+<div>
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <br/>
+  <%= f.password_field :password_confirmation, :class => "text" %>
+  <%= f.error_message_on :password_confirmation %>
+</div>
+
+<p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

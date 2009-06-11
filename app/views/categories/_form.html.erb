@@ -1,0 +1,17 @@
+<% form_for @category do |f| -%>
+  <div>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name, :class => "text" %>
+    <%= f.error_message_on :name %>
+  </div>
+
+  <div>
+    <%= f.label :position %>
+    <br/>
+    <%= f.text_field :position, :class => "text" %>
+    <%= f.error_message_on :position %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

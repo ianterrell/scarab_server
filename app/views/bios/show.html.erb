@@ -1,0 +1,27 @@
+<h2>Edit Bio</h2>
+
+<p>If we publish your work, we'll contact you for a bio.  But if you'd like to give it a little thought now, you can do it here.</p>
+
+<% if @bio.new_record? %>
+  <p>
+    You have not set your bio information yet!  <%= link_to "Create it here.", new_bio_path %>
+  </p>
+<% else %>
+  <p>
+    <b>Name:</b> <%= @bio.name %>
+  </p>
+  <p>
+    <b>Phone Number:</b> <%= @bio.phone %>
+  </p>
+  <p>
+    <b>Bio:</b>
+    <% if @bio.body.blank? %>
+        <i>not set</i>
+    <% else %>
+      <%= @bio.body %>
+    <% end %>
+  </p>
+  <p>
+    <%= link_to "Edit", edit_bio_path %>
+  </p>
+<% end %>

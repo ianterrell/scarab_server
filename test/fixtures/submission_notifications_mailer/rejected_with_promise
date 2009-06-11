@@ -1,0 +1,3 @@
+SubmissionNotificationsMailer#rejected_with_promise
+
+Find me in app/views/submission_notifications_mailer/rejected_with_promise.erb

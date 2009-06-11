@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="iPhone, iPod Touch, poetry, literature, short stories, mobile, magazine, literary magazine" />
+    <meta name="description" content="The world's only mobile literary magazine, produced for the iPhone and iPod touch." />
+    <title>Scarab :: The world's only mobile literary magazine, produced for the iPhone and iPod touch.</title>
+   	<%= stylesheet_link_merged :base %>
+   	<%= javascript_include_merged :base %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column span-6 first">
+        <div id="small-logo">
+          <%= link_to image_tag("logo-medium.png"), root_path %>
+        </div>
+      </div>
+      <div class="column span-18 last">
+      	<%= display_flash :error, :notice, :success %>
+      	<div id="content">
+          <%= yield %>
+        </div>
+      </div>
+      
+      <%= render :partial => "layouts/footer" %>
+    </div>
+    <%= render :partial => "layouts/analytics" %>
+  </body>
+</html>

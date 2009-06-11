@@ -1,0 +1,45 @@
+<h2>Log in</h2>
+
+<p>
+  If you've already created an account with us, please log in here.
+</p>
+
+<% form_tag session_path do -%>
+  <table id="login-table">
+    <tr>
+      <td><%= label_tag 'email' %></td>
+      <td><%= label_tag 'password' %></td>
+    </tr>
+    <tr>
+      <td><%= text_field_tag 'email', @email, :class => "text" %></td>
+      <td><%= password_field_tag 'password', nil, :class => "text"  %></td>
+      <td>
+        <%= submit_tag 'Log in', :class => "button" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= label_tag 'remember_me', 'Remember me' %>
+        <%= check_box_tag 'remember_me', '1', @remember_me %>
+      </td>
+      <td>
+        <%= link_to "Forgot your password?", forgot_path %>
+      </td>
+    </tr>
+  </table>
+<% end -%>
+
+<br/>
+
+<div id="signup-form">
+  <%= render :partial => "users/sign_up" %>
+</div>
+
+<p>
+  <br/>
+  <br/>
+  Having trouble logging in or signing up?  Send an email to <%= link_to "support@scarabmag.com", "mailto:support@scarabmag.com" %>
+</p>
+
+
+

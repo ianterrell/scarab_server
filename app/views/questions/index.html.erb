@@ -1,0 +1,24 @@
+<% @questions.group_by{|q|q.category.name}.each do |question, questions| %>
+  <h3><%= question %></h3>
+  <table>
+    <tr>
+      <th>Question</th>
+      <th>Position</th>
+      <th>Actions</th>
+    </tr>
+    <% questions.each do |question| %>
+      <tr>
+        <td><%= question.body %></td>
+        <td><%= question.position %></td>
+        <td>
+          <%= link_to "Edit", edit_question_path(question) %>
+          <%= link_to "Delete", question, :method => :delete, :confirm => "Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+
+<%= link_to "Add Question", new_question_path %>

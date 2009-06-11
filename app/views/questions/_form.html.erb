@@ -1,0 +1,30 @@
+<% form_for @question do |f| -%>
+  <div>
+    <%= f.label :category_id %>
+    <br/>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.label :body, "Question" %>
+    <br/>
+    <%= f.text_field :body, :class => "text" %>
+    <%= f.error_message_on :body %>
+  </div>
+  
+  <div>
+    <%= f.label :answer %>
+    <br/>
+    <%= f.text_area :answer, :class => "textarea" %>
+    <%= f.error_message_on :answer %>
+  </div>
+
+  <div>
+    <%= f.label :position %>
+    <br/>
+    <%= f.text_field :position, :class => "text" %>
+    <%= f.error_message_on :position %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>
