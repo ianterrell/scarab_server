@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090610182335) do
+ActiveRecord::Schema.define(:version => 20090611175048) do
 
   create_table "bios", :force => true do |t|
     t.string   "name",       :limit => 64
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20090610182335) do
     t.datetime "updated_at"
     t.string   "color",        :limit => 6
     t.datetime "published_at"
+    t.string   "title",        :limit => 32
+    t.string   "subtitle",     :limit => 128
   end
 
   create_table "mailing_list_recipients", :force => true do |t|

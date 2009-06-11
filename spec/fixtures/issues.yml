@@ -6,6 +6,11 @@
 # two:
 #   column: value
 
+issue_3:
+  number: 3
+  color: ff00ff
+  published_at: <%= 1.month.from_now.to_s :db %>
+
 issue_1:
   number: 1
   color: ff00ff
@@ -15,11 +20,6 @@ issue_2:
   number: 2
   color: ff00ff
   published_at: <%= 1.day.ago.to_s :db %>
-  
-issue_3:
-  number: 3
-  color: ff00ff
-  published_at: <%= 1.month.from_now.to_s :db %>
   
 issue_4:
   number: 4
