@@ -4,14 +4,28 @@ class WorksController < ApplicationController
   before_filter :login_required
   permit "editor", :only => [:index, :edit, :update, :reject, :reject_with_promise, :promote, :accept]
   
-  create.before do
-    if params[:bio] || current_user.bio.nil?
-      @bio = current_user.create_bio params[:bio]
+  def create
+    begin
+      Work.transaction do
+        if params[:bio] || current_user.bio.nil?
+          @bio = current_user.build_bio params[:bio]
+        end
+        
+        @work = Work.new params[:work]
+        @work.user = current_user
+        
+        @bio.valid?
+        @work.valid?
+        
+        @bio.save! && @work.save!
+        
+        flash[:success] = "Thank you for your submission!"
+        redirect_to dashboard_url
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :action => "new"
     end
-    
-    @work.user = current_user
   end
-  create.wants.html { redirect_to dashboard_url }
   
   def collection
     unless params[:state].blank?

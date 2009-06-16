@@ -6,7 +6,7 @@
 
 <% form_for @work, :html => { :multipart => true } do |f| -%>
 
-  <% if current_user.bio.nil? || current_user.bio.new_record? %>
+  <% if current_user.bio.nil? || current_user.bio.new_record? || @bio %>
     <div id="submit-bio">
       <h3>Bio</h3>
       <p>
