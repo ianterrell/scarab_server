@@ -4,12 +4,12 @@
 
 set :application, "scarab"
 
-set :scm,           :subversion
-set :scm_username,  'ian'
-set :scm_password,  'bobbyfisher'
-set :deploy_via,    :export
-set :use_sudo,      false
-
+default_run_options[:pty] = true
+set :repository,  "git@github.com:ianterrell/scarab_server.git"
+set :scm, "git"
+set :deploy_via, :remote_cache
+set :git_enable_submodules, 1
+ssh_options[:forward_agent] = true
 
 set :use_sudo,      false
 
@@ -18,17 +18,18 @@ role :web, "scarabmag.com"
 role :db,  "scarabmag.com", :primary => true
 
 set :user,          'deploy'
+#set :scm_passphrase, "" #This is your custom users password
 #set :password,      'GIxVDWGW'
 
 set :keep_releases, 5
 
 task :staging do
-  set :repository,     "http://ianterrell.com/svn/scarabweb/trunk"
+  set :branch, "master"
   set :deploy_to,      "/home/deploy/#{application}_staging"
 end
 
 task :production do
-  set :repository,     "http://ianterrell.com/svn/scarabweb/production"
+  set :branch, "master"
   set :deploy_to,      "/home/deploy/#{application}"
 end
 
@@ -53,7 +54,7 @@ namespace(:deploy) do
   desc "Create asset packages for production" 
   task :package_assets, :roles => :app do
     run <<-EOF
-     cd #{release_path} && rake asset:packager:build_all
+     cd #{release_path} && rake asset:packager:build_all RAILS_ENV=production
     EOF
   end
   
