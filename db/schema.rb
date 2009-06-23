@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090611175048) do
+ActiveRecord::Schema.define(:version => 20090622162627) do
 
   create_table "bios", :force => true do |t|
     t.string   "name",       :limit => 64
@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(:version => 20090611175048) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color",        :limit => 6
+    t.string   "color",              :limit => 6
     t.datetime "published_at"
-    t.string   "title",        :limit => 32
-    t.string   "subtitle",     :limit => 128
+    t.string   "title",              :limit => 32
+    t.string   "subtitle",           :limit => 128
+    t.string   "product_identifier", :limit => 64
   end
 
   create_table "mailing_list_recipients", :force => true do |t|
@@ -48,6 +49,20 @@ ActiveRecord::Schema.define(:version => 20090611175048) do
     t.text     "answer"
     t.integer  "position"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "issue_id"
+    t.integer  "original_transaction_id"
+    t.integer  "quantity"
+    t.string   "identifier"
+    t.string   "product_identifier"
+    t.string   "app_identifier"
+    t.string   "version_external_identifier"
+    t.boolean  "apple_validated"
+    t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

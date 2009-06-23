@@ -1,0 +1,16 @@
+<h2>Issue <%= @issue.number %></h2>
+<h3><%= @issue.title %></h3>
+<%= @issue.subtitle %>
+
+<br/><br/>
+
+<h4>Works</h4>
+<ul>
+  <% @issue.works.each do |work| %>
+    <li><%= work.title %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to "Edit", edit_issue_path(@issue) %>
+</p>

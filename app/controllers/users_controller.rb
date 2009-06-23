@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  permit "editor", :only => [:suspend, :unsuspend, :destroy, :purge]
+  demand "editor", :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
 
   layout 'medium'

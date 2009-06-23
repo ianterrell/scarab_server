@@ -1,1 +1,28 @@
-Coming soon?
+<h2>Issues</h2>
+
+<% if @issues.empty? %>
+  <p>
+    You haven't submitted any issues yet!  <%= link_to "Submit one here!", submit_issue_path %>
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Publish Date</th>
+    </tr>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= link_to issue.number, issue %></td>
+        <td><%= truncate issue.title, :length => 100 %></td>
+        <td><%= truncate issue.subtitle, :length => 100 %></td>
+        <td><%= issue.published? ? issue.published_at.to_s(:short) : "ready check?" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @issues %>
+<% end %>
+
+
+<%= link_to "New Issue", new_issue_path %>

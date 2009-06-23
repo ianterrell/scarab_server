@@ -1,0 +1,34 @@
+<h2>New Issue</h2>
+
+<% form_for @issue do |f| -%>
+  <div>
+    <%= f.label :number %>
+    <br/>
+    <%= f.text_field :number, :class => "text" %>
+    <%= f.error_message_on :number %>
+  </div>
+
+  <div>
+    <%= f.label :title %>
+    <br/>
+    <%= f.text_field :title, :class => "text" %>
+    <%= f.error_message_on :title %>
+  </div>
+
+  <div>
+    <%= f.label :subtitle %>
+    <br/>
+    <%= f.text_field :subtitle, :class => "text" %>
+    <%= f.error_message_on :subtitle %>
+  </div>
+
+  <div>
+    <%= f.label :color %>
+    <br/>
+    <%= f.text_field :color, :class => "text" %>
+    <%= f.error_message_on :color %>
+    <small>Hexadecimal color of the issue, i.e. FF0000 for red or 00FF00 for green.</small>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

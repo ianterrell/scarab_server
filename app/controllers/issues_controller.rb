@@ -1,12 +1,7 @@
 class IssuesController < ApplicationController
-  with_options :except => [:published_since_number] do |auth|
-    auth.before_filter :login_required
-    auth.permit "editor"
-  end
+  resource_controller
   
-  def index
-    
-  end
+  demand "editor", :except => [:published_since_number]
   
   caches_page :published_since_number
   def published_since_number
@@ -15,4 +10,11 @@ class IssuesController < ApplicationController
       format.xml { render :xml => @issues }
     end
   end
+  
+private
+
+  def collection
+    @collection ||= end_of_association_chain.paginate :all, :page => params[:page], :order => "number DESC"
+  end
+
 end

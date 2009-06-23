@@ -9,4 +9,14 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  def self.demand(who, options={})
+    class_eval <<-CODE
+      with_options(#{options.inspect}) do |auth|
+        auth.before_filter :login_required
+        auth.permit #{who.inspect}
+      end
+    CODE
+  end
+  
 end
