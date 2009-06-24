@@ -107,6 +107,11 @@ describe User do
     User.authenticate('quentin@example.com', 'monkey').should == users(:quentin)
   end
 
+  it 'authenticates user with any case in email' do
+    User.authenticate('QUENTIN@EXAMPLE.COM', 'monkey').should == users(:quentin) #lower in db
+    User.authenticate('bentin@example.com', 'monkey').should == users(:bentin) #upper in db
+  end
+
   it "doesn't authenticate user with bad password" do
     User.authenticate('quentin@example.com', 'invalid_password').should be_nil
   end
