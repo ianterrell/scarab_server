@@ -32,6 +32,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :issues
   
   ###
+  # Purchasing
+  map.resource :transactions
+  
+  ###
   # FAQ
   map.resources :categories
   map.resources :questions
