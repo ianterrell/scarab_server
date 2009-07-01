@@ -14,7 +14,7 @@ class WorksController < ApplicationController
         @work = Work.new params[:work]
         @work.user = current_user
         
-        @bio.valid?
+        @bio.valid? if @bio
         @work.valid?
         
         @bio.save! && @work.save!
