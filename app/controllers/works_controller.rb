@@ -14,10 +14,10 @@ class WorksController < ApplicationController
         @work = Work.new params[:work]
         @work.user = current_user
         
-        @bio.valid? if @bio
+        @bio.try(:valid?)
         @work.valid?
         
-        @bio.save! && @work.save!
+        @work.save! && @bio.try(:save!)
         
         flash[:success] = "Thank you for your submission!"
         redirect_to dashboard_url
