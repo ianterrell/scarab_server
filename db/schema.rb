@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090622162627) do
+ActiveRecord::Schema.define(:version => 20090703180116) do
 
   create_table "bios", :force => true do |t|
     t.string   "name",       :limit => 64
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20090622162627) do
     t.string   "title",              :limit => 32
     t.string   "subtitle",           :limit => 128
     t.string   "product_identifier", :limit => 64
+    t.text     "description"
   end
 
   create_table "mailing_list_recipients", :force => true do |t|

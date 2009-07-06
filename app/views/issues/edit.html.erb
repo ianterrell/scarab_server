@@ -38,5 +38,13 @@
     <small>Unique ID of the issue in the iTunes store for the application.</small>
   </div>
 
+  <div>
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_area :description, :class => "textarea" %>
+    <%= f.error_message_on :description %>
+    <small>Description of the issue for the preview page.  HTML allowed.</small>
+  </div>
+
   <p><%= submit_tag 'Submit', :class => "button" %></p>
 <% end -%>
