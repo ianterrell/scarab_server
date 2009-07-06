@@ -11,7 +11,7 @@ class Work < ActiveRecord::Base
   
   validates_attachment_presence :document
   validates_attachment_size :document, :less_than => 5.megabytes
-  validates_attachment_content_type :document, :content_type => ['text/plain', 'application/msword', 'application/pdf', 'application/rtf'], :message => "must be a Word document, PDF, RTF, or text file"
+  #validates_attachment_content_type :document, :content_type => ['text/plain', 'application/msword', 'application/pdf', 'application/rtf'], :message => "must be a Word document, PDF, RTF, or text file"
   
   validate :bio_filled_out
   
