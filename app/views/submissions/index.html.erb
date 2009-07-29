@@ -1,0 +1,40 @@
+<% if @submissions.empty? %>
+  <p>
+    There aren't any submissions<% unless params[:state].blank? %> marked as <%= params[:state].titleize %><% end %>.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Submitted</th>
+      <% if params[:state] == "second_reading" %>
+        <th>Promoted</th>
+      <% elsif params[:state] == "rejected" %>
+        <th>Rejected</th>
+      <% elsif params[:state] == "accepted" %>
+        <th>Accepted</th>
+      <% elsif params[:state].blank? %>
+        <th>Status</th>
+      <% end %>
+    </tr>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= link_to truncate(submission.title, :length => 100), submission_path(submission) %></td>
+        <td><%= submission.attribution %></td>
+        <td><%= time_ago_in_words submission.created_at %> ago</td>
+        <% if params[:state] == "second_reading" %>
+          <td><%= submission.promoted_at == submission.created_at ? "automatically" : "#{time_ago_in_words(submission.promoted_at)} ago" %></td>
+        <% elsif params[:state] == "rejected" %>
+          <td><%= time_ago_in_words submission.rejected_at %> ago</td>
+        <% elsif params[:state] == "accepted" %>
+          <td><%= time_ago_in_words submission.accepted_at %> ago</td>
+        <% elsif params[:state].blank? %>
+          <td><%= submission.state_for_display %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= will_paginate @submissions %>
+<% end %>

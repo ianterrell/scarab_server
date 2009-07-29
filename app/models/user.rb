@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   ###
   # Relationships
   
-  has_many :works, :order => "created_at DESC"
+  has_many :submissions, :order => "created_at DESC"
   has_one :bio
   delegate :name, :to => :bio
   

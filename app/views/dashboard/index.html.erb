@@ -1,6 +1,6 @@
 <h2>My Submissions</h2>
 
-<% if @works.empty? %>
+<% if @submissions.empty? %>
   <p>
     You haven't submitted any works yet!  <%= link_to "Submit one here!", submit_work_path %>
   </p>
@@ -11,11 +11,11 @@
       <th>Submitted</th>
       <th>Status</th>
     </tr>
-    <% @works.each do |work| %>
+    <% @submissions.each do |submission| %>
       <tr>
-        <td><%= truncate work.title, :length => 100 %></td>
-        <td><%= time_ago_in_words work.created_at %> ago</td>
-        <td><%= work.state_for_display %></td>
+        <td><%= truncate submission.title, :length => 100 %></td>
+        <td><%= time_ago_in_words submission.created_at %> ago</td>
+        <td><%= submission.state_for_display %></td>
       </tr>
     <% end %>
   </table>
@@ -29,7 +29,7 @@
   </div>
   <%= link_to_function("What do the different statuses mean?") { |page| page.visual_effect :toggle_appear, "state_explanation" }%>
   
-  <%= will_paginate @works %>
+  <%= will_paginate @submissions %>
 <% end %>
 
 <%= render :partial => "users/promising_contributor" %>
