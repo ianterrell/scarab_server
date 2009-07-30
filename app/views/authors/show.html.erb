@@ -9,14 +9,14 @@
 
 <br/><br/>
 
-<% if @author.issues.empty? %>
-  <i>Not yet published in any issues of Scarab.</i>
+<% if @author.works.empty? %>
+  <i>Not yet published in Scarab.</i>
   <br/>  <br/>
 <% else %>
-  <h4>Issues</h4>
+  <h4>Published Works</h4>
   <ul>
-    <% @author.issues.each do |issue| %>
-      <li><%= issue.title %></li>
+    <% @author.works.each do |work| %>
+      <li><%= link_to work.title, work %> in <%= link_to work.issue.title, work.issue %></li>
     <% end %>
   </ul>
 <% end %>

@@ -2,7 +2,7 @@ require 'aasm'
 
 class Submission < ActiveRecord::Base
   belongs_to :user
-  belongs_to :issue
+  has_one :work
   
   has_attached_file :document
   
@@ -23,6 +23,11 @@ class Submission < ActiveRecord::Base
   
   def bio_filled_out
     self.errors.add :base, "Bio must be filled out" if user && user.bio.nil?
+  end
+  
+  named_scope :unassigned, :include => :work, :conditions => "state = 'accepted' and works.submission_id IS NULL"
+  def unassigned?
+    accepted? && work.nil?
   end
   
   ###

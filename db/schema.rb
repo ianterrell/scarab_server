@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090730034327) do
+ActiveRecord::Schema.define(:version => 20090730185158) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20090730034327) do
     t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "published_at"
   end
 
   create_table "bios", :force => true do |t|
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20090730034327) do
 
   create_table "submissions", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "issue_id"
     t.string   "state",                 :limit => 64
     t.string   "title",                 :limit => 512
     t.boolean  "agree_to_terms",                       :default => false
@@ -82,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20090730034327) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
-    t.integer  "work_id"
   end
 
   create_table "transactions", :force => true do |t|
@@ -125,6 +122,8 @@ ActiveRecord::Schema.define(:version => 20090730034327) do
     t.integer  "issue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "submission_id"
+    t.boolean  "prose",         :default => false
   end
 
   add_index "works", ["issue_id"], :name => "index_works_on_issue_id"

@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
-  has_many :submissions
+  has_many :works
   
   validates_presence_of :number
   validates_uniqueness_of :number

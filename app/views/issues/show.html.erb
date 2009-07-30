@@ -3,15 +3,21 @@
 <%= @issue.subtitle %>
 
 <br/><br/>
+
 <div id="issue-description">
-<%= @issue.description %>
+  <%= @issue.description %>
 </div>
+
 <br/><br/>
 
-<h4>Submissions</h4>
+Color: <span style="background-color:#<%= @issue.color %>;"><%= @issue.color %></span>
+
+<br/><br/>
+
+<h4>Works</h4>
 <ul>
   <% @issue.works.each do |work| %>
-    <li><%= work.title %></li>
+    <li><%= link_to work.title, work %> by <%= link_to work.author.name, work.author %></li>
   <% end %>
 </ul>
 

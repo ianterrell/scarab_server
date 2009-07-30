@@ -10,13 +10,15 @@
       <th>#</th>
       <th>Title</th>
       <th>Subtitle</th>
+      <th>Color</th>
       <th>Publish Date</th>
     </tr>
     <% @issues.each do |issue| %>
       <tr>
         <td><%= link_to issue.number, issue %></td>
-        <td><%= truncate issue.title, :length => 100 %></td>
+        <td><%= link_to truncate(issue.title, :length => 100), issue %></td>
         <td><%= truncate issue.subtitle, :length => 100 %></td>
+        <td style="background-color:#<%= issue.color %>;"><%= issue.color %></td>
         <td><%= issue.published? ? issue.published_at.to_s(:short) : "ready check?" %></td>
       </tr>
     <% end %>

@@ -28,11 +28,12 @@ ActionController::Routing::Routes.draw do |map|
   
   ###
   # Issues and Content Management
-  map.resources :authors
   map.issues_since "/issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
   map.resources :issues do |issues|
     issues.resources :works
   end
+  map.resources :works
+  map.resources :authors
   
   ###
   # Purchasing
@@ -47,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   ###
   # Submissions
   map.submit_work "/submit", :controller => "submissions", :action => "new"
-  map.resources :submissions, :except => [:destroy], 
+  map.resources :submissions, :except => [:destroy], :collection => { :unassigned => :get },
     :member => { 
       :reject_discourage => :post, 
       :reject_neutral => :post, 

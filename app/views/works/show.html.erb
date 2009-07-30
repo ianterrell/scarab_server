@@ -1,0 +1,23 @@
+<h2><%= @work.title %></h2>
+<h3>by <%= link_to @work.author.name, @work.author %></h3>
+
+<br/>
+
+<div id="work-body">
+  <%= @work.body %>
+</div>
+
+<br/><br/>
+
+<i>Published in <%= link_to @work.issue.title, @work.issue %></i>
+
+<% if @work.submission %>
+  <br/><br/>
+  <i>Originally from <%= link_to @work.submission.title, @work.submission %> by <%= @work.submission.user.name %></i>
+<% end %>
+
+<br/><br/>
+
+<p>
+  <%= link_to "Edit", edit_work_path(@work) %>
+</p>

@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
   resource_controller
   
   before_filter :login_required
-  permit "editor", :only => [:index, :edit, :update, :reject, :reject_with_promise, :promote, :accept]
+  permit "editor", :only => [:index, :edit, :update, :reject, :reject_with_promise, :promote, :accept, :unassigned]
   
   def create
     begin
@@ -25,6 +25,10 @@ class SubmissionsController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       render :action => "new"
     end
+  end
+  
+  def unassigned
+    @submissions ||= Submission.unassigned.paginate :page => params[:page]
   end
   
   def collection
