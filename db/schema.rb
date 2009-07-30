@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090729193242) do
+ActiveRecord::Schema.define(:version => 20090730034327) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "published_at"
+  end
 
   create_table "bios", :force => true do |t|
     t.string   "name",       :limit => 64
@@ -70,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20090729193242) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.integer  "work_id"
   end
 
   create_table "transactions", :force => true do |t|
@@ -104,5 +117,16 @@ ActiveRecord::Schema.define(:version => 20090729193242) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "works", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "author_id"
+    t.integer  "issue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "works", ["issue_id"], :name => "index_works_on_issue_id"
 
 end

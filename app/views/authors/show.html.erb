@@ -1,0 +1,26 @@
+<h2><%= @author.name %></h2>
+
+<div id="author-bio">
+  <%= @author.bio %>
+</div>
+
+<%= image_tag @author.photo.url :medium %>
+<%= image_tag @author.photo.url :large %>
+
+<br/><br/>
+
+<% if @author.issues.empty? %>
+  <i>Not yet published in any issues of Scarab.</i>
+  <br/>  <br/>
+<% else %>
+  <h4>Issues</h4>
+  <ul>
+    <% @author.issues.each do |issue| %>
+      <li><%= issue.title %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  <%= link_to "Edit", edit_author_path(@author) %>
+</p>

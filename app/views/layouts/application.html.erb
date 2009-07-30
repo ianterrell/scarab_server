@@ -28,6 +28,7 @@
             <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'rejected' || (@submission && @submission.rejected?)) %>><%= link_to "Rejected", submissions_path(:state => "rejected") %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && params[:state].blank? && !@submission %>><%= link_to "All Submissions", submissions_path %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", issues_path %></li>
+            <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", authors_path %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "FAQ Cats", categories_path %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "FAQs", questions_path %></li>
           </ul>

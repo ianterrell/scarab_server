@@ -196,6 +196,16 @@ td {
   margin: 10px 0px;
 }
 
+#author-bio {
+  width: 320px;
+  border: 1px solid #B7BBCF;
+  background-color: #9FA5BE;
+  padding: 5px;
+  margin: 10px 0px;
+}
+#author-bio a { padding: 0px; }
+
+
 .review img { float: left; margin: 7px 3px 3px 0px; }
 
 .flash{ padding:10px 10px 10px 30px; margin-bottom:15px; }

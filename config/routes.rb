@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   
   ###
   # Issues and Content Management
+  map.resources :authors
   map.issues_since "/issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
   map.resources :issues do |issues|
     issues.resources :works
