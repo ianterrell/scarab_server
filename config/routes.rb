@@ -32,8 +32,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :issues do |issues|
     issues.resources :works
   end
-  map.resources :works
-  map.resources :authors
+  map.resources :works, :collection => { :create_from_submission => :post }
+  map.resources :authors, :collection => { :create_from_user => :post }
   
   ###
   # Purchasing

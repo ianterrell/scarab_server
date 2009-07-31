@@ -22,4 +22,8 @@ module ApplicationHelper
       image_tag 'attachment.png'
     end
   end
+  
+  def issues_options(options={})
+    Issue.all.collect {|p| [ p.title, p.id ] }
+  end
 end

@@ -17,7 +17,10 @@
     <% elsif @submission.second_reading? %>  
       <%= workflow_button "reject", "Reject" %>
       <%= workflow_button "accept", "Accept for Publication" %>
+    <% elsif @submission.unassigned? %>
+      <%= render :partial => "create_work", :locals => {:submission => @submission} %>
     <% end %>
   </div>
+    
   <div class="clearfix"></div>
 <% end %>

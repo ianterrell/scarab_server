@@ -7,6 +7,13 @@
   </div>
 
   <div>
+    <%= f.label :location %>
+    <br/>
+    <%= f.text_field :location, :class => "text" %>
+    <%= f.error_message_on :location %>
+  </div>
+
+  <div>
     <%= f.label :bio %>
     <br/>
     <%= f.text_area :bio, :class => "textarea" %>

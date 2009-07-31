@@ -26,8 +26,8 @@
             <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'first_reading' || (@submission && !@submission.new_record? && @submission.first_reading?)) %>><%= link_to "Slush (#{Submission.first_reading.count})", submissions_path(:state => "first_reading") %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'rejected' || (@submission && @submission.rejected?)) %>><%= link_to "Rejected", submissions_path(:state => "rejected") %></li>
             <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'accepted' || (@submission && @submission.accepted?)) %>><%= link_to "Accepted", submissions_path(:state => "accepted") %></li>
-            <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'unassigned' || (@submission && @submission.unassigned?)) %>><%= link_to "Unassigned", unassigned_submissions_path %>
-            <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && params[:state].blank? && !@submission %>><%= link_to "All", submissions_path %></li>
+            <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (@controller.action_name == 'unassigned' || (@submission && @submission.unassigned?)) %>><%= link_to "Unassigned", unassigned_submissions_path %>
+            <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && @controller.action_name != 'unassigned' && params[:state].blank? && !@submission %>><%= link_to "All", submissions_path %></li>
           </ul>
           <ul>
             <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", issues_path %></li>

@@ -9,7 +9,7 @@
       <th>Author</th>
       <th>Submitted</th>
       <th>Accepted</th>
-      <th>Action</th>
+      <th colspan="2">Actions</th>
     </tr>
     <% @submissions.each do |submission| %>
       <tr>
@@ -17,7 +17,8 @@
         <td><%= submission.attribution %></td>
         <td><%= time_ago_in_words submission.created_at %> ago</td>
         <td><%= time_ago_in_words submission.accepted_at %> ago</td>
-        <td>Create work in (drop down issues)</td>
+        <td style="border-right:none;"><%= render :partial => "create_author", :locals => {:user => submission.user} %></td>
+        <td><%= render :partial => "create_work", :locals => {:submission => submission} %></td>
       </tr>
     <% end %>
   </table>
