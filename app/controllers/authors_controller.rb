@@ -1,7 +1,14 @@
 class AuthorsController < ApplicationController
   resource_controller
   
-  demand "editor", :except => :show
+  belongs_to :issue
+  
+  demand "editor", :except => [:index, :show]
+  
+  index.wants.html do
+    redirect_to root_path unless permit?("editor")
+  end
+  index.wants.xml { render :xml => collection }
   
   show.success.wants.xml { render :xml => object }
   show.success.wants.html do

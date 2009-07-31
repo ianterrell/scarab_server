@@ -1,5 +1,6 @@
 class Issue < ActiveRecord::Base
   has_many :works, :order => :position
+  has_many :authors, :through => :works
   
   validates_presence_of :number
   validates_uniqueness_of :number

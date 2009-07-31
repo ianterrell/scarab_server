@@ -7,7 +7,8 @@ class Author < ActiveRecord::Base
   
   validates_presence_of :name, :location, :bio
   
-  customize_xml_and_json :methods => :photo_url, :except => [:photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :created_at]
+  customize_xml_and_json :methods => :photo_url, 
+    :except => [:user_id, :created_at, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at]
   
   def photo_url
     self.photo.url(:medium)

@@ -5,5 +5,7 @@ class Work < ActiveRecord::Base
   
   acts_as_list :scope => :issue_id
   
-  validates_presence_of :title, :body, :author_id, :issue_id
+  validates_presence_of :title, :body, :author_id, :issue_id, :reader
+  
+  customize_xml_and_json :except => [:submission_id, :created_at, :updated_at, :issue_id]
 end

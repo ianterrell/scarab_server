@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   map.issues_since "/issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
   map.resources :issues, :member => { :sort => :post } do |issues|
     issues.resources :works
+    issues.resources :authors
   end
   map.resources :works, :collection => { :create_from_submission => :post }
   map.resources :authors, :collection => { :create_from_user => :post }

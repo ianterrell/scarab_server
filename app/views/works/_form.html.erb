@@ -14,6 +14,13 @@
   </div>
   
   <div>
+    <%= f.label :reader %>
+    <br/>
+    <%= f.text_field :reader, :class => "text" %>
+    <%= f.error_message_on :reader %>
+  </div>
+  
+  <div>
     <%= f.label :issue_id %>
     <br/>
     <%= f.select :issue_id, issues_options %>
