@@ -23,6 +23,12 @@ module ApplicationHelper
     end
   end
   
+  def iphone_display(copy)
+    content_tag :div, :class => "iphone-display" do
+      (copy || "").gsub("\n", content_tag(:br))
+    end
+  end
+  
   def issues_options(options={})
     Issue.all.collect {|p| [ p.title, p.id ] }
   end

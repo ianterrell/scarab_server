@@ -3,9 +3,7 @@
 
 <br/>
 
-<div id="work-body">
-  <%= @work.body %>
-</div>
+<%= iphone_display @work.body %>
 
 <br/><br/>
 
@@ -13,7 +11,7 @@
 
 <% if @work.submission %>
   <br/><br/>
-  <i>Originally from <%= link_to @work.submission.title, @work.submission %> by <%= @work.submission.user.name %></i>
+  <i>Submitted as <%= link_to @work.submission.title, @work.submission %> by <%= @work.submission.user.name %></i>
 <% end %>
 
 <br/><br/>

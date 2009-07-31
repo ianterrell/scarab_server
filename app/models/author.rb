@@ -1,6 +1,7 @@
 class Author < ActiveRecord::Base
   has_many :works
   has_many :issues, :through => :works
+  belongs_to :user
   
   has_attached_file :photo, :styles => { :large => "128x128>", :medium => "64x64>", :thumb => "32x32>" }
   

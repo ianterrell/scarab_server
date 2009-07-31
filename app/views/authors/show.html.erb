@@ -1,9 +1,7 @@
 <h2><%= @author.name %></h2>
 <h3><%= @author.location %></h3>
 
-<div id="author-bio">
-  <%= @author.bio.gsub("\n","<br/>") %>
-</div>
+<%= iphone_display @author.bio %>
 
 <%= image_tag @author.photo.url :medium %>
 <%= image_tag @author.photo.url :large %>

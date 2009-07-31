@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
     @author = Author.new
     @author.name = user.bio.name
     @author.bio = user.bio.body
+    @author.user = user
     render "new"
   end
   

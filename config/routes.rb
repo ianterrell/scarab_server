@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   ###
   # Issues and Content Management
   map.issues_since "/issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
-  map.resources :issues do |issues|
+  map.resources :issues, :member => { :sort => :post } do |issues|
     issues.resources :works
   end
   map.resources :works, :collection => { :create_from_submission => :post }

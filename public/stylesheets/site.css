@@ -188,22 +188,24 @@ td {
   margin: 10px 0px;
 }
 
-#issue-description {
-  width: 255px;
-  border: 1px solid #B7BBCF;
-  background-color: #9FA5BE;
-  padding: 5px;
-  margin: 10px 0px;
-}
-
-#author-bio {
+.iphone-display {
   width: 320px;
   border: 1px solid #B7BBCF;
-  background-color: #9FA5BE;
+  background-color: white;
   padding: 5px;
   margin: 10px 0px;
 }
-#author-bio a { padding: 0px; }
+.iphone-display a { padding: 0px; }
+
+#issue_works {
+  list-style: none;
+}
+
+.issue-work-item {
+  padding: 2px 5px 3px 25px;
+  background: url(/images/dragAll.png) left no-repeat;
+}
+
 
 
 .review img { float: left; margin: 7px 3px 3px 0px; }

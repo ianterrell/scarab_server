@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090731003431) do
+ActiveRecord::Schema.define(:version => 20090731153405) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20090731003431) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.integer  "user_id"
   end
 
   create_table "bios", :force => true do |t|
@@ -125,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20090731003431) do
     t.datetime "updated_at"
     t.integer  "submission_id"
     t.boolean  "prose",         :default => false
+    t.integer  "position",      :default => 1
   end
 
   add_index "works", ["issue_id"], :name => "index_works_on_issue_id"

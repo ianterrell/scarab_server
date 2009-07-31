@@ -18,7 +18,8 @@
       <%= workflow_button "reject", "Reject" %>
       <%= workflow_button "accept", "Accept for Publication" %>
     <% elsif @submission.unassigned? %>
-      <%= render :partial => "create_work", :locals => {:submission => @submission} %>
+      <%= render :partial => "create_author", :locals => { :user => @submission.user } %>
+      <%= render :partial => "create_work", :locals => { :submission => @submission } %>
     <% end %>
   </div>
     

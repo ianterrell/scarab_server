@@ -11,6 +11,14 @@ class IssuesController < ApplicationController
     end
   end
   
+  def sort
+    params[:issue_works].each_with_index do |id, index|
+      w = Work.find id
+      w.update_attribute :position, index + 1
+    end
+    render(:update) { |page| page.visual_effect :highlight, :issue_works }
+  end
+  
 private
 
   def collection

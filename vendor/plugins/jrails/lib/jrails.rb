@@ -358,9 +358,10 @@ module ActionView
 				options.delete(:axis) if options[:axis].nil?
 				options.delete(:overlap)
 				options.delete(:ghosting)
-				
+
+				# Totally just hack-patched by Ian from this:  http://markmail.org/message/eoqx5illwdbmfw5n?q=jrails+sortable_element
 				if options[:onUpdate] || options[:url]
-					options[:with] ||= "#{JQUERY_VAR}(this).sortable('serialize',{key:'#{element_id}'})"
+					options[:with] ||= "#{JQUERY_VAR}(this).sortable('serialize',{key:'#{element_id}[]'})"
 					options[:onUpdate] ||= "function(){" + remote_function(options) + "}"
 				end
 				
