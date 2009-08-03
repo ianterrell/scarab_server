@@ -1,0 +1,38 @@
+<% form_for [:admin, @author], :html => { :multipart => true }  do |f| -%>
+  <div>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name, :class => "text" %>
+    <%= f.error_message_on :name %>
+  </div>
+
+  <div>
+    <%= f.label :location %>
+    <br/>
+    <%= f.text_field :location, :class => "text" %>
+    <%= f.error_message_on :location %>
+  </div>
+
+  <div>
+    <%= f.label :bio %>
+    <br/>
+    <%= f.text_area :bio, :class => "textarea" %>
+    <%= f.error_message_on :bio %>
+  </div>
+  
+  <div>
+    <%= f.label :user_id, "Submitting User" %>
+    <br/>
+    <%= f.select :user_id, users_options %>
+    <%= f.error_message_on :user_id %>
+  </div>
+  
+  <div>
+    <%= f.label :photo %>
+    <br/>
+    <%= f.file_field :photo %>
+    <%= f.error_message_on :photo %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

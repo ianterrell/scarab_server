@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # TODO: split out some of this functionality (editor stuff) into admin
+
   demand "editor", :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
 

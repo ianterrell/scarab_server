@@ -1,0 +1,28 @@
+<h2><%= @work.title %></h2>
+<h3>by <%= link_to @work.author.name, [:admin, @work.author] %></h3>
+
+<br/>
+
+<%= iphone_display @work.body %>
+
+<i>Read by <%= @work.reader %> <%= link_to "(audio)", audio_admin_work_path(@work) %></i>
+
+<% if @work.free? %>
+  <br/><br/>
+  <i>This work is available free!</i>
+<% end %>
+
+<br/><br/>
+
+<i>Published in <%= link_to @work.issue.title, [:admin, @work.issue] %></i>
+
+<% if @work.submission %>
+  <br/><br/>
+  <i>Originally submitted as <%= link_to @work.submission.title, [:admin, @work.submission] %> by <%= @work.submission.user.name %></i>
+<% end %>
+
+<br/><br/>
+
+<p>
+  <%= link_to "Edit", edit_admin_work_path(@work) %>
+</p>

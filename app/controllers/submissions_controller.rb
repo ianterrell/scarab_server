@@ -1,10 +1,13 @@
 class SubmissionsController < ApplicationController
+  # TODO: split out some of this functionality (editor stuff) into admin
+  
   resource_controller
   
   before_filter :login_required
   permit "editor", :only => [:index, :edit, :update, :reject, :reject_with_promise, :promote, :accept, :unassigned]
   
   def create
+    # This feels like a hacktastic mess.
     begin
       Submission.transaction do
         if params[:bio] || current_user.bio.nil?

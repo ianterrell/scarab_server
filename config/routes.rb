@@ -27,14 +27,34 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mailing_list_recipients, :only => :create
   
   ###
-  # Issues and Content Management
-  map.issues_since "/issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
-  map.resources :issues, :member => { :sort => :post } do |issues|
-    issues.resources :works
-    issues.resources :authors
+  # Content Management
+  map.namespace :admin do |admin|
+    admin.root :controller => "admin", :action => "dashboard"
+    
+    admin.resources :issues, :member => { :sort => :post }
+    admin.resources :works, :collection => { :create_from_submission => :post }, :member => { :audio => :get }
+    admin.resources :authors, :collection => { :create_from_user => :post }
+    
+    admin.resources :categories
+    admin.resources :questions
+    
+    admin.resources :submissions
   end
-  map.resources :works, :collection => { :create_from_submission => :post }
-  map.resources :authors, :collection => { :create_from_user => :post }
+  
+  ###
+  # API for iPhone
+  map.namespace :api do |api|
+    api.namespace :v1 do |v1|
+      v1.issues_since "issues/since/:number.:format", :controller => "issues", :action => "published_since_number"
+      v1.resources :issues do |issues|
+        issues.resources :works
+        issues.resources :authors
+      end
+      v1.resources :works
+      v1.resources :authors
+      v1.resource :transactions
+    end
+  end
   
   ###
   # Purchasing
@@ -42,8 +62,6 @@ ActionController::Routing::Routes.draw do |map|
   
   ###
   # FAQ
-  map.resources :categories
-  map.resources :questions
   map.faq '/faq', :controller => 'faq'
   
   ###

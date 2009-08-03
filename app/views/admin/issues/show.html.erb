@@ -1,0 +1,21 @@
+<h2>Issue <%= @issue.number %></h2>
+<h3><%= @issue.title %></h3>
+<%= @issue.subtitle %>
+
+<%= iphone_display @issue.preview_description %>
+
+<p>Color: <span style="background-color:#<%= @issue.color %>;"><%= @issue.color %></span></p>
+
+<br/><br/>
+
+<h4>Works</h4>
+<ul id="issue_works">
+  <% @issue.works.each do |work| %>
+    <li id="work_<%= work.id %>" class="issue-work-item"><%= link_to work.title, [:admin, work] %> by <%= link_to work.author.name, [:admin, work.author] %></li>
+  <% end %>
+</ul>
+<%= sortable_element("issue_works", :url => {:action => 'sort'}) %>
+
+<p>
+  <%= link_to "Edit", edit_admin_issue_path(@issue) %>
+</p>

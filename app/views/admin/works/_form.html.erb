@@ -1,0 +1,59 @@
+<% form_for [:admin, @work], :html => { :multipart => true } do |f| -%>
+  <div>
+    <%= f.label :title %>
+    <br/>
+    <%= f.text_field :title, :class => "text" %>
+    <%= f.error_message_on :title %>
+  </div>
+
+  <div>
+    <%= f.label :body %>
+    <br/>
+    <%= f.text_area :body, :class => "textarea" %>
+    <%= f.error_message_on :body %>
+  </div>
+  
+  <div>
+    <%= f.label :audio %>
+    <br/>
+    <%= f.file_field :audio %>
+    <%= f.error_message_on :audio %>
+  </div>
+  
+  <div>
+    <%= f.label :reader %>
+    <br/>
+    <%= f.text_field :reader, :class => "text" %>
+    <%= f.error_message_on :reader %>
+  </div>
+  
+  <div>
+    <%= f.label :issue_id %>
+    <br/>
+    <%= f.select :issue_id, issues_options %>
+    <%= f.error_message_on :issue_id %>
+  </div>
+  
+  <div>
+    <%= f.label :author_id %>
+    <br/>
+    <%= f.select :author_id, authors_options %>
+    <%= f.error_message_on :author_id %>
+  </div>
+
+  <div>
+    <%= f.label :submission_id %>
+    <br/>
+    <%= f.select :submission_id, submissions_options, :include_blank => true %>
+    <%= f.error_message_on :submission_id %>
+  </div>
+  
+  <div>
+    <%= f.label :free %>
+    <%= f.check_box :free %>
+  </div>
+  
+  <br/> 
+  
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

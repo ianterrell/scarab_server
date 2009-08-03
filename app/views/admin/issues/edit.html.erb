@@ -1,0 +1,50 @@
+<h2>Edit Issue</h2>
+
+<% form_for [:admin, @issue] do |f| -%>
+  <div>
+    <%= f.label :number %>
+    <br/>
+    <%= f.text_field :number, :class => "text" %>
+    <%= f.error_message_on :number %>
+  </div>
+
+  <div>
+    <%= f.label :title %>
+    <br/>
+    <%= f.text_field :title, :class => "text" %>
+    <%= f.error_message_on :title %>
+  </div>
+
+  <div>
+    <%= f.label :subtitle %>
+    <br/>
+    <%= f.text_field :subtitle, :class => "text" %>
+    <%= f.error_message_on :subtitle %>
+  </div>
+
+  <div>
+    <%= f.label :color %>
+    <br/>
+    <%= f.text_field :color, :class => "text" %>
+    <%= f.error_message_on :color %>
+    <small>Hexadecimal color of the issue, i.e. FF0000 for red or 00FF00 for green.</small>
+  </div>
+
+  <div>
+    <%= f.label :product_identifier %>
+    <br/>
+    <%= f.text_field :product_identifier, :class => "text" %>
+    <%= f.error_message_on :product_identifier %>
+    <small>Unique ID of the issue in the iTunes store for the application.</small>
+  </div>
+
+  <div>
+    <%= f.label :preview_description %>
+    <br/>
+    <%= f.text_area :preview_description, :class => "textarea" %>
+    <%= f.error_message_on :preview_description %>
+    <small>Description of the issue for the preview page.  HTML allowed.</small>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>
