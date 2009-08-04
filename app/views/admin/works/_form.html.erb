@@ -26,6 +26,13 @@
     <%= f.text_field :reader, :class => "text" %>
     <%= f.error_message_on :reader %>
   </div>
+
+  <div>
+    <%= f.label :work_type %>
+    <br/>
+    <%= f.select :work_type, Work::TYPES %>
+    <%= f.error_message_on :work_type %>
+  </div>
   
   <div>
     <%= f.label :issue_id %>
