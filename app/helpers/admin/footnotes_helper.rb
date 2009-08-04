@@ -1,0 +1,2 @@
+module Admin::FootnotesHelper
+end

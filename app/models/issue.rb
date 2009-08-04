@@ -14,11 +14,5 @@ class Issue < ActiveRecord::Base
   validates_presence_of :color
   validates_length_of :color, :within => 6..6
   
-  default_scope :order => :number
-  named_scope :published, lambda { { :conditions => ["published_at <= ?", Time.now] } }
-  named_scope :since_number, lambda { |number| { :conditions => ["number > ?", number] } }
-  
-  def published?
-    published_at && published_at <= Time.now
-  end
+  is_a_published_model
 end

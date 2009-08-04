@@ -35,11 +35,19 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :works, :collection => { :create_from_submission => :post }, :member => { :audio => :get }
     admin.resources :authors, :collection => { :create_from_user => :post }
     
+    admin.resources :updates
+    
+    admin.resources :interviews do |interviews|
+      interviews.resources :footnotes  
+    end
+    
     admin.resources :categories
     admin.resources :questions
     
     admin.resources :submissions
   end
+  
+  # TODO: limit routes to only those implemented?
   
   ###
   # API for iPhone
@@ -52,6 +60,14 @@ ActionController::Routing::Routes.draw do |map|
       end
       v1.resources :works, :member => { :audio => :get }
       v1.resources :authors
+      
+      v1.interviews_since "updates/since/:number.:format", :controller => "updates", :action => "published_since_number"
+
+      v1.interviews_since "interviews/since/:number.:format", :controller => "interviews", :action => "published_since_number"
+      v1.resources :interviews do |interviews|
+        interviews.resources :footnotes  
+      end
+      
       v1.resource :transactions
     end
   end

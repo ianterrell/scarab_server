@@ -1,0 +1,25 @@
+<h2>Updates</h2>
+
+<% if @updates.empty? %>
+  <p>
+    No updates.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Number</th>
+      <th>Body</th>
+      <th>Published?</th>
+    </tr>
+    <% @updates.each do |update| %>
+      <tr>
+        <td><%= link_to update.number, [:admin, update] %></td>
+        <td><%= link_to truncate(update.body, 100), [:admin, update] %></td>
+        <td><%= update.published_at.try(:to_s, :short) %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @updates %>
+<% end %>
+
+<%= link_to "New Update", new_admin_update_path %>

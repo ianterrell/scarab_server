@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090804045501) do
+ActiveRecord::Schema.define(:version => 20090804174342) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(:version => 20090804045501) do
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 64
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "footnotes", :force => true do |t|
+    t.integer  "interview_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interviews", :force => true do |t|
+    t.integer  "number"
+    t.integer  "author_id"
+    t.text     "body"
+    t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,6 +112,14 @@ ActiveRecord::Schema.define(:version => 20090804045501) do
     t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "updates", :force => true do |t|
+    t.datetime "published_at"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "number"
   end
 
   create_table "users", :force => true do |t|

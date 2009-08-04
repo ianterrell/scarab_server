@@ -27,6 +27,12 @@
           <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", admin_authors_path %></li>
         </ul>
         <ul>
+          <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
+        </ul>
+        <ul>
+          <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
+        </ul>
+        <ul>
           <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "FAQ Cats", admin_categories_path %></li>
           <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "FAQs", admin_questions_path %></li>
         </ul>

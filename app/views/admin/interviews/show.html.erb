@@ -1,0 +1,26 @@
+<h2>Interview with <%= link_to @interview.author.name, [:admin, @interview.author] %></h2>
+
+<%= iphone_display @interview.body %>
+
+<i>Interview #<%= @interview.number %></i>
+<br/>
+<i>Published at <%= @interview.published_at.to_s(:short) %></i>
+<br/><br/>
+<p>
+  <%= link_to "Edit Interview", edit_admin_interview_path(@interview) %>
+</p>
+
+<h3>Footnotes</h3>
+
+<% @interview.footnotes.each do |footnote| %>
+  <a name="footnote_<%= footnote.id %>"></a>
+  <%= iphone_display footnote.body %>
+  <%= footnote.id %>
+  <%= link_to "Edit", edit_admin_interview_footnote_path(@interview, footnote) %>
+  <%= link_to "Delete", admin_interview_footnote_path(@interview, footnote), :method => :delete %>
+<% end %>
+
+<br/><br/>
+<p>
+  <%= link_to "Add Footnote", new_admin_interview_footnote_path(@interview) %>
+</p>

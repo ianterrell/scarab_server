@@ -1,0 +1,13 @@
+<% form_for @footnote, :url => @footnote.new_record? ? admin_interview_footnotes_path : admin_interview_footnote_path(@interview, @footnote) do |f| -%>
+
+  <div>
+    <%= f.label :body %>
+    <br/>
+    <%= f.text_area :body, :class => "textarea" %>
+    <%= f.error_message_on :body %>
+  </div>
+  
+  <br/> 
+  
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

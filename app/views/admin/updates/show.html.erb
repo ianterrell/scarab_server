@@ -1,0 +1,11 @@
+<h2>Update</h2>
+
+<%= iphone_display @update.body %>
+
+<i>Update #<%= @update.number %></i>
+<br/>
+<i>TODO:  all contingencies here... scheduled, etcPublished at <%= @update.published_at.try(:to_s, :short) %></i>
+
+<p>
+  <%= link_to "Edit", edit_admin_update_path(@update) %>
+</p>
