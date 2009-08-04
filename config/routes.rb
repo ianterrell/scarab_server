@@ -50,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
         issues.resources :works
         issues.resources :authors
       end
-      v1.resources :works
+      v1.resources :works, :member => { :audio => :get }
       v1.resources :authors
       v1.resource :transactions
     end
