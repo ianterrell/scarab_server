@@ -12,7 +12,14 @@
     <%= f.select :author_id, authors_options %>
     <%= f.error_message_on :author_id %>
   </div>
-
+  
+  <div>
+    <%= f.label :date %>
+    <br/>
+    <%= f.text_field :date, :class => "text" %>
+    <%= f.error_message_on :date %>
+  </div>
+  
   <div>
     <%= f.label :body %>
     <br/>

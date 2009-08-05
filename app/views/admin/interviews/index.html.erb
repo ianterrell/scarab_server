@@ -9,12 +9,14 @@
     <tr>
       <th>Number</th>
       <th>Author</th>
+      <th>Date</th>
       <th>Published?</th>
     </tr>
     <% @interviews.each do |interview| %>
       <tr>
         <td><%= link_to interview.number, [:admin, interview] %></td>
         <td><%= link_to interview.author.name, [:admin, interview.author] %></td>
+        <td><%= interview.date %></td>
         <td><%= interview.published_at.try(:to_s, :short) %></td>
       </tr>
     <% end %>
