@@ -4,7 +4,7 @@
 
 <i>Update #<%= @update.number %></i>
 <br/>
-<i>TODO:  all contingencies here... scheduled, etcPublished at <%= @update.published_at.try(:to_s, :short) %></i>
+<i><%= publication_time @update.published_at %></i>
 
 <p>
   <%= link_to "Edit", edit_admin_update_path(@update) %>

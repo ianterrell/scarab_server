@@ -23,7 +23,7 @@
   <div>
     <%= f.label :user_id, "Submitting User" %>
     <br/>
-    <%= f.select :user_id, users_options %>
+    <%= f.select :user_id, users_options, :include_blank => true %>
     <%= f.error_message_on :user_id %>
   </div>
   

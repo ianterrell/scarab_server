@@ -17,7 +17,7 @@
         <td><%= link_to interview.number, [:admin, interview] %></td>
         <td><%= link_to interview.author.name, [:admin, interview.author] %></td>
         <td><%= interview.date %></td>
-        <td><%= interview.published_at.try(:to_s, :short) %></td>
+        <td><%= publication_time interview.published_at %></td>
       </tr>
     <% end %>
   </table>

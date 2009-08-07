@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
   has_many :submissions, :order => "created_at DESC"
   has_one :bio
   has_one :author
-  delegate :name, :to => :bio
+  
+  def name
+    bio.nil? ? "?" : bio.name
+  end
   
   ###
   # Validation

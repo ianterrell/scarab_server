@@ -5,7 +5,7 @@
 
 <i>Interview #<%= @interview.number %></i>
 <br/>
-<i>Published at <%= @interview.published_at.to_s(:short) %></i>
+<i><%= publication_time @interview.published_at %></i>
 <br/><br/>
 <p>
   <%= link_to "Edit Interview", edit_admin_interview_path(@interview) %>

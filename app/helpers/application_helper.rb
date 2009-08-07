@@ -29,6 +29,16 @@ module ApplicationHelper
     end
   end
   
+  def publication_time(time)
+    if time.nil?
+      "Not set for publication"
+    elsif time > Time.now
+      "Will be published at #{time.to_s(:short)}"
+    else
+      "Published at #{time.to_s(:short)}"
+    end
+  end
+  
   def issues_options(options={})
     Issue.all.collect {|p| [ p.title, p.id ] }
   end
@@ -37,4 +47,11 @@ module ApplicationHelper
     Author.all.collect {|p| [ p.name, p.id ] }
   end
   
+  def submissions_options(options={})
+    Submission.accepted.collect {|p| [ "#{p.title} - #{p.user.name}", p.id ] }
+  end
+  
+  def users_options(options={})
+    User.all.collect {|p| [ p.name, p.id ] }
+  end
 end
