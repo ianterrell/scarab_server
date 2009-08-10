@@ -3,8 +3,8 @@
 
 <%= iphone_display @author.bio %>
 
-<%= image_tag @author.photo.url :medium %>
-<%= image_tag @author.photo.url :large %>
+<%= image_tag @author.photo.url(:medium) %>
+<%= link_to image_tag(@author.photo.url), image_tag(@author.photo.url(:large)) %>
 
 <br/><br/>
 
