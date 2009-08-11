@@ -1,6 +1,6 @@
 <h2>New Issue</h2>
 
-<% form_for @issue do |f| -%>
+<% form_for [:admin, @issue] do |f| -%>
   <div>
     <%= f.label :number %>
     <br/>
