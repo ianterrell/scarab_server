@@ -19,7 +19,7 @@
 </ul>
 <%= sortable_element("issue_works", :url => {:action => 'sort'}) unless @issue.published? %>
 
-<i><%= publication_time @update.published_at %></i>
+<i><%= publication_time @issue.published_at %></i>
 
 <p>
   <%= link_to "Edit", edit_admin_issue_path(@issue) %>
