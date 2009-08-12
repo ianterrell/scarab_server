@@ -1,0 +1,16 @@
+<br/><br/>
+
+<% form_for [:admin, publishable]  do |f| -%>
+  <div>
+    <%= f.label :published_at, "Schedule for publication at" %>
+    <br/>
+    <%= f.datetime_select :published_at %>
+    <%= f.error_message_on :published_at %>
+  </div>
+
+  <br/> 
+  
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>
+
+<%= link_to "Back", [:admin, publishable] %>

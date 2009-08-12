@@ -1,4 +1,5 @@
 class Admin::IssuesController < Admin::AdminController
+  is_publishable
   
   def sort
     params[:issue_works].each_with_index do |id, index|

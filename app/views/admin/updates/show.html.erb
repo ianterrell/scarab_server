@@ -4,7 +4,7 @@
 
 <i>Update #<%= @update.number %></i>
 <br/>
-<i><%= publication_time @update.published_at %></i>
+<i><%= publication_time @update.published_at %></i> <%= link_to "edit publication time", publish_admin_update_path(@update) %>
 
 <p>
   <%= link_to "Edit", edit_admin_update_path(@update) %>

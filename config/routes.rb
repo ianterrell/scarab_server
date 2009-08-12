@@ -31,13 +31,13 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.root :controller => "admin", :action => "dashboard"
     
-    admin.resources :issues, :member => { :sort => :post }
+    admin.resources :issues, :member => { :sort => :post, :publish => [:get, :post] }
     admin.resources :works, :collection => { :create_from_submission => :post }, :member => { :audio => :get }
     admin.resources :authors, :collection => { :create_from_user => :post }
     
-    admin.resources :updates
+    admin.resources :updates, :member => { :publish => [:get, :post] }
     
-    admin.resources :interviews do |interviews|
+    admin.resources :interviews, :member => { :publish => [:get, :post] } do |interviews|
       interviews.resources :footnotes  
     end
     
