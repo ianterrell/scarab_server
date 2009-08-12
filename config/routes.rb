@@ -69,6 +69,7 @@ ActionController::Routing::Routes.draw do |map|
       end
       
       v1.resource :transactions
+      v1.resources :feedbacks
     end
   end
   
