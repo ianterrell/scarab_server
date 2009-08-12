@@ -40,7 +40,7 @@ after "deploy:update_code","deploy:package_assets"
 # =============================================================================
 namespace(:deploy) do  
   task :symlink_configs, :roles => :app, :except => {:no_symlink => true} do
-    configs = %w{ database settings }
+    configs = %w{ database settings newrelic }
     configs.map! { |file| "ln -nfs #{shared_path}/config/#{file}.yml #{release_path}/config/#{file}.yml" }
     run <<-CMD
       cd #{release_path} && #{configs.join(' && ')}
