@@ -25,7 +25,7 @@ module ApplicationHelper
   
   def iphone_display(copy)
     content_tag :div, :class => "iphone-display" do
-      (copy || "").gsub("\n", content_tag(:br)).gsub("  ","&nbsp;&nbsp;&nbsp;").gsub("scarab://footnotes/", "#footnote_").gsub("scarab://", "/")
+      (copy || "").gsub("\n", content_tag(:br)).gsub("  ","&nbsp;&nbsp;").gsub("scarab://footnotes/", "#footnote_").gsub("scarab://", "/admin/")
     end
   end
   
