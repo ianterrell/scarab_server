@@ -43,7 +43,8 @@ namespace(:deploy) do
     configs = %w{ database settings newrelic }
     configs.map! { |file| "ln -nfs #{shared_path}/config/#{file}.yml #{release_path}/config/#{file}.yml" }
     run <<-CMD
-      cd #{release_path} && #{configs.join(' && ')}
+      cd #{release_path} && #{configs.join(' && ')} &&
+      ln -nfs #{shared_path}/protected #{release_path}/protected
     CMD
   end
 
