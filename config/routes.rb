@@ -44,7 +44,15 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :categories
     admin.resources :questions
     
-    admin.resources :submissions
+    admin.resources :submissions, :except => [:destroy], :collection => { :unassigned => :get },
+      :member => { 
+        :reject_discourage => :post, 
+        :reject_neutral => :post, 
+        :reject_encourage => :post, 
+        :promote => :post, 
+        :reject => :post, 
+        :accept => :post 
+      }
   end
   
   # TODO: limit routes to only those implemented?
@@ -84,15 +92,7 @@ ActionController::Routing::Routes.draw do |map|
   ###
   # Submissions
   map.submit_work "/submit", :controller => "submissions", :action => "new"
-  map.resources :submissions, :except => [:destroy], :collection => { :unassigned => :get },
-    :member => { 
-      :reject_discourage => :post, 
-      :reject_neutral => :post, 
-      :reject_encourage => :post, 
-      :promote => :post, 
-      :reject => :post, 
-      :accept => :post 
-    }
+  map.resources :submissions, :only => [:new, :create]
     
     
   map.resource :bio

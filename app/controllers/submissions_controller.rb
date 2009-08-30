@@ -1,11 +1,6 @@
-class SubmissionsController < ApplicationController
-  # TODO: split out some of this functionality (editor stuff) into admin
-  
+class SubmissionsController < ApplicationController  
   resource_controller
-  
-  before_filter :login_required
-  permit "editor", :only => [:index, :edit, :update, :reject, :reject_with_promise, :promote, :accept, :unassigned]
-  
+
   def create
     # This feels like a hacktastic mess.
     begin
@@ -29,32 +24,4 @@ class SubmissionsController < ApplicationController
       render :action => "new"
     end
   end
-  
-  def unassigned
-    @submissions ||= Submission.unassigned.paginate :page => params[:page]
-  end
-  
-  def collection
-    unless params[:state].blank?
-      @collection ||= Submission.paginate :conditions => { :state => params[:state] }, :page => params[:page]
-    else
-      @collection ||= Submission.paginate :page => params[:page]
-    end
-  end
-  
-  [:reject_discourage, :reject_neutral, :reject_encourage, :promote, :reject, :accept].each do |transition|
-    define_method transition do      
-      @submission = Submission.find params[:id]
-      @submission.send(:"#{transition}!")
-      flash[:success] = "#{transition.to_s.humanize}: #{@submission.title}"
-      
-      next_submission = nil
-      if params[:state]
-        next_submission = Submission.find :first, :conditions => { :state => params[:state] }, :order => :created_at
-      end
-      
-      redirect_to next_submission ? next_submission : submissions_path(:state => params[:state])
-    end
-  end
-  
 end

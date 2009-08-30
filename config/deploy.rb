@@ -29,7 +29,7 @@ task :staging do
 end
 
 task :production do
-  set :branch, "production"
+  set :branch, "master"
   set :deploy_to,      "/home/deploy/#{application}"
 end
 
