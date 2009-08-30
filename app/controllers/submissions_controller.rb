@@ -1,6 +1,8 @@
 class SubmissionsController < ApplicationController  
   resource_controller
 
+  before_filter :login_required
+
   def create
     # This feels like a hacktastic mess.
     begin
