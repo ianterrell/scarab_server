@@ -1,6 +1,0 @@
-<% form_tag create_from_submission_works_path do %>
-  <%= hidden_field_tag :submission_id, submission.id %>
-  <%= hidden_field_tag :author_id, submission.user.author.try(:id) %>
-  <%= select_tag :issue_id, options_for_select(issues_options) %>
-  <%= submit_tag "Create Work", :class => "button" %>
-<% end %>
