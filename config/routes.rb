@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   ###
   # Basics
   map.root :controller => 'main'
+  map.about "/about", :controller => 'main', :action => "who"
   map.dashboard '/dashboard', :controller => 'dashboard'
 
   ###
