@@ -1,0 +1,17 @@
+<% content_for :leftcol do %>
+	<ul>
+		<li><a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=330025381" class="podcast">Get the latest Podcast</a></li>
+		<li><a href="http://www.facebook.com/pages/Scarab-Magazine/231140735510" class="facebook">Become a fan on Facebook</a></li>
+		<li><a href="http://www.twitter.com/scarabmag" class="twitter">Follow us on Twitter</a></li>
+	</ul>
+	
+	<div id="submit-box">
+		<span class="sifr-me">Submit Your Work!</span>
+		<p>Send us your poems<br /> or prose and get<br /> featured.</p>
+		<a href="<%= submit_work_path %>" class="submit-btn">Submit Work</a>
+	</div>
+<% end %>
+
+<% inside_layout 'application' do -%>
+   <%= yield %>
+ <% end -%>

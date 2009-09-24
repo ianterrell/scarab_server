@@ -3,7 +3,7 @@ class Author < ActiveRecord::Base
   has_many :issues, :through => :works
   belongs_to :user
   
-  has_attached_file :photo, :styles => { :large => "128x128>", :medium => "64x64>", :thumb => "32x32>" }
+  has_attached_file :photo, :styles => { :large => "128x128>", :medium => "64x64>", :web => "52x52>", :thumb => "32x32>" }
   
   validates_presence_of :name, :location, :bio
   

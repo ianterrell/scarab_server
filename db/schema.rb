@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090812020232) do
+ActiveRecord::Schema.define(:version => 20090923214418) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -67,12 +67,14 @@ ActiveRecord::Schema.define(:version => 20090812020232) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "color",               :limit => 6
+    t.string   "color",                 :limit => 6
     t.datetime "published_at"
-    t.string   "title",               :limit => 32
-    t.string   "subtitle",            :limit => 128
-    t.string   "product_identifier",  :limit => 64
+    t.string   "title",                 :limit => 32
+    t.string   "subtitle",              :limit => 128
+    t.string   "product_identifier",    :limit => 64
     t.text     "preview_description"
+    t.text     "short_web_description"
+    t.text     "long_web_description"
   end
 
   create_table "mailing_list_recipients", :force => true do |t|

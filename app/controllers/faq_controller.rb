@@ -1,4 +1,6 @@
 class FaqController < ApplicationController
+  layout "contributor"
+  
   before_filter :login_required
   
   def index

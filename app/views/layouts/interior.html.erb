@@ -1,0 +1,5 @@
+<% @main_content_class = "interior" %>
+<% inside_layout 'leftcallouts' do -%>
+	<%= display_flash :error, :notice, :success %>
+  <%= yield %>
+ <% end -%>

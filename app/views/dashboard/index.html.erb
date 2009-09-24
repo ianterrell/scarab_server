@@ -1,37 +1,43 @@
-<h2>My Submissions</h2>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>My Submissions</h3>
+		<span>We'll email you updates, but you can check here, too</span>
+	</div>
+</div>
 
-<% if @submissions.empty? %>
-  <p>
-    You haven't submitted any works yet!  <%= link_to "Submit one here!", submit_work_path %>
-  </p>
-<% else %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Submitted</th>
-      <th>Status</th>
-    </tr>
-    <% @submissions.each do |submission| %>
+<div id="interior-body">
+  
+  <% if @submissions.empty? %>
+    <p>
+      You haven't submitted any works yet!  <%= link_to "Submit one here!", submit_work_path %>
+    </p>
+  <% else %>
+    <table>
       <tr>
-        <td><%= truncate submission.title, :length => 100 %></td>
-        <td><%= time_ago_in_words submission.created_at %> ago</td>
-        <td><%= submission.state_for_display %></td>
+        <th>Title</th>
+        <th>Submitted</th>
+        <th>Status</th>
       </tr>
-    <% end %>
-  </table>
+      <% @submissions.each do |submission| %>
+        <tr>
+          <td><%= truncate submission.title, :length => 100 %></td>
+          <td><%= time_ago_in_words submission.created_at %> ago</td>
+          <td><%= submission.state_for_display %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br/>
+    <div style="display:none;" id="state_explanation">
+      <ul>
+        <li><b>First Reading</b>:  This work is currently being read by our editors.</li>
+        <li><b>Second Reading</b>:  This work has passed a first reading and is in the final selection for publication.</li>
+        <li><b>Rejected</b>:  This work is no longer being considered for publication.  Please submit again though!</li>
+        <li><b>Accepted</b>:  This work will be published in an upcoming issue!</li>
+    </div>
+    <%= link_to_function("What do the different statuses mean?") { |page| page.visual_effect :toggle_appear, "state_explanation" }%>
   
-  <div style="display:none;" id="state_explanation">
-    <ul>
-      <li><b>First Reading</b>:  This work is currently being read by our editors.</li>
-      <li><b>Second Reading</b>:  This work has passed a first reading and is in the final selection for publication.</li>
-      <li><b>Rejected</b>:  This work is no longer being considered for publication.  Please submit again though!</li>
-      <li><b>Accepted</b>:  This work will be published in an upcoming issue!</li>
-  </div>
-  <%= link_to_function("What do the different statuses mean?") { |page| page.visual_effect :toggle_appear, "state_explanation" }%>
+    <%= will_paginate @submissions %>
+  <% end %>
   
-  <%= will_paginate @submissions %>
-<% end %>
-
-<%= render :partial => "users/promising_contributor" %>
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <%= render :partial => "users/promising_contributor" %>
+</div>

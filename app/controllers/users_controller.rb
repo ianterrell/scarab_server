@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   demand "editor", :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
 
-  layout 'medium'
+  layout 'interior'
 
   # render new.rhtml
   def new

@@ -1,0 +1,49 @@
+<!-- TODO <a href="#" class="app-store-interior">Available in the iPhone App Store</a> -->
+
+<div id="issue-header">
+	<div class="issue-icon" style="background-color: #<%= @current_issue.color %>;">
+		<img src="/images/icon-img.png" alt="Issue <%= @current_issue.number %>" />
+		<span><%= @issue.number %></span>
+	</div>
+	<div id="header-text">
+		<h3><%= @issue.title %></h3>
+		<% if @issue == @current_issue %><span>Current Issue</span><% end %>
+	</div>
+</div>
+
+<div id="interior-body">
+	
+	<p class="large-text"><strong><%= @issue.title %></strong> - <%= @issue.long_web_description %></p>
+	
+	<h3>This Issue's Authors</h3>
+	
+	<!-- TODO <a href="#" class="dl-issue">Download Scarab and get this issue &raquo;</a> -->
+	
+  <% cols = [[],[],[]] %>
+  <% @issue.authors.each_with_index { |author, i| cols[i % 3] << author } %>
+	<% cols.each_with_index do |authors, i| %>
+  	<div class="author-col<%= ' no-marg' if i == 2 %>">
+		  <% authors.each do |author| %>
+		    <div class="author-box">
+    			<div class="top">&nbsp;</div>
+    			<div class="box-body">
+    				<div class="user-pic">
+    					<a href="#"><img src="/images/authors-border.png" alt="" /></a>
+    					<%= image_tag author.photo.url(:web) %>
+    				</div>
+    				<div class="user-name">
+    					<span><%= author.name %></span><br />
+    					<small><%= author.location %></small>
+    				</div>
+
+    				<p><%= author.bio %></p>
+    			</div>
+    			<div class="bottom">&nbsp;</div>
+    		</div>
+		  <% end %>
+  	</div>
+	<% end %>
+	
+</div>
+
+<div id="content-bottom">&nbsp;</div>

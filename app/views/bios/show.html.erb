@@ -1,27 +1,34 @@
-<h2>Edit Bio</h2>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>My Bio</h3>
+		<span>Just a little extra information we hope you'll share</span>
+	</div>
+</div>
 
-<p>If we publish your work, we'll contact you for a bio.  But if you'd like to give it a little thought now, you can do it here.</p>
+<div id="interior-body">
 
-<% if @bio.new_record? %>
-  <p>
-    You have not set your bio information yet!  <%= link_to "Create it here.", new_bio_path %>
-  </p>
-<% else %>
-  <p>
-    <b>Name:</b> <%= @bio.name %>
-  </p>
-  <p>
-    <b>Phone Number:</b> <%= @bio.phone %>
-  </p>
-  <p>
-    <b>Bio:</b>
-    <% if @bio.body.blank? %>
-        <i>not set</i>
-    <% else %>
-      <%= @bio.body %>
-    <% end %>
-  </p>
-  <p>
-    <%= link_to "Edit", edit_bio_path %>
-  </p>
-<% end %>
+  <% if @bio.new_record? %>
+    <p>
+      You have not set your bio information yet!  <%= link_to "Create it here.", new_bio_path %>
+    </p>
+  <% else %>
+    <p>
+      <b>Name:</b> <%= @bio.name %>
+    </p>
+    <p>
+      <b>Phone Number:</b> <%= @bio.phone %>
+    </p>
+    <p>
+      <b>Bio:</b>
+      <% if @bio.body.blank? %>
+          <i>not set</i>
+      <% else %>
+        <%= @bio.body %>
+      <% end %>
+    </p>
+    <p>
+      <%= link_to "Edit", edit_bio_path %>
+    </p>
+  <% end %>
+  
+</div>

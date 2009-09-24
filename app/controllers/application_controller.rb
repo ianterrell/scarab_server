@@ -6,9 +6,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   include AuthenticatedSystem
+  
+  before_filter :get_current_issue
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
+  
+protected
+  def get_current_issue
+    @current_issue = Issue.published.first :order => "number desc"
+  end
   
   def self.demand(who, options={})
     class_eval <<-CODE

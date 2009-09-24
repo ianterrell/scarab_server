@@ -1,8 +1,15 @@
-<h2>Log in</h2>
+<!-- TODO ><a href="#" class="app-store-interior">Available in the iPhone App Store</a> -->
 
-<p>
-  If you've already created an account with us, please log in here.
-</p>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>Log in</h3>
+		<span>You must be signed up and logged in to submit your works to us</span>
+	</div>
+</div>
+
+<div id="interior-body">
+	
+	<p>If you already have an account with us, please log in with this top form.  If you haven't signed up yet, please <a href="#signup">jump down to the sign up form below</a>.</p>
 
 <% form_tag session_path do -%>
   <table id="login-table">
@@ -13,9 +20,6 @@
     <tr>
       <td><%= text_field_tag 'email', @email, :class => "text" %></td>
       <td><%= password_field_tag 'password', nil, :class => "text"  %></td>
-      <td>
-        <%= submit_tag 'Log in', :class => "button" %>
-      </td>
     </tr>
     <tr>
       <td>
@@ -27,19 +31,21 @@
       </td>
     </tr>
   </table>
-<% end -%>
 
+  <%= submit_tag 'Log in', :class => "button" %>
+<% end %>
 <br/>
 
+<a name="signup"></a>
 <div id="signup-form">
   <%= render :partial => "users/sign_up" %>
 </div>
 
+
 <p>
   <br/>
-  <br/>
-  Having trouble logging in or signing up?  Send an email to <%= link_to "support@scarabmag.com", "mailto:support@scarabmag.com" %>
+  Having trouble logging in or signing up?  Send an email to <%= link_to "support@scarabmag.com", "mailto:support@scarabmag.com" %>.
 </p>
 
-
+</div>
 

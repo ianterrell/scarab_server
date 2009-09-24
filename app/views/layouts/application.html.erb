@@ -1,49 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="iPhone, iPod Touch, poetry, literature, short stories, mobile, magazine, literary magazine" />
-    <meta name="description" content="The world's only mobile literary magazine.  Coming soon to the iPhone and iPod touch." />
-    <title>Scarab</title>
-   	<%= stylesheet_link_merged :base %>
-   	<%= javascript_include_merged :base %>
-  </head>
-  <body>
-    <div class="container" style="position:relative;">
-      <div id="user-bar">
-        Logged in as <%= current_user.email %>
-        <%= link_to "Log out", logout_path, { :title => "Log out" } %>
-      </div>
-      <div class="column span-3 first" id="left-nav">
-        <div id="small-logo">
-          <%= link_to image_tag("scarab-small.png"), dashboard_path %>
-        </div>
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'dashboard' %>><%= link_to "Dashboard", dashboard_path%></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && 
-                                        ['new','create'].include?(@controller.action_name) %>>
-            <%= link_to "Submit", submit_work_path %>
-          </li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'bios' %>><%= link_to "My Bio", bio_path %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'faq' %>><%= link_to "FAQ", faq_path %></li>
-        </ul>
-        <% if permit? "editor" %>
-          <ul>
-            <li><%= link_to "Admin", admin_root_path %></li>
-          </ul>
-        <% end %>
-      </div>
-      <div class="column span-21 last">
-      	<%= display_flash :error, :notice, :success %>
-      	<div id="content">
-          <%= yield %>
-        </div>
-      </div>
-      
-      <%= render :partial => "layouts/footer" %>
-    </div>
-    <%= render :partial => "layouts/analytics" %>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<meta name="keywords" content="iPhone, iPod Touch, poetry, literature, short stories, mobile, magazine, literary magazine, litmag" />
+  <meta name="description" content="The world's only mobile literary magazine, exclusively for the iPhone and iPod touch." />
+	<meta name="ROBOTS" content="ALL" />
+	
+  <title>Scarab :: The world's only mobile literary magazine, produced for the iPhone and iPod touch.</title>
+	
+	<%= stylesheet_link_merged :homepage %>
+ 	<%= javascript_include_merged :base %>
+
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="/css/screen_ie7.css" type="text/css" media="screen"/>
+	<![endif]-->
+		
+</head>
+<body>
+	
+	<a href="<%= root_path %>" id="logo">Scarab Magazine</a>
+	
+  <div id="container">
+		
+		<div id="leftcol">
+			<%= yield :leftcol %>
+		</div>
+		
+		<div id="main-content" class="<%= @main_content_class %>">
+      <%= yield %>
+		</div>
+		
+		<div id="footer">
+			<ul>
+				<li><a href="<%= root_path %>">Home</a> |</li>
+				<li><a href="<%= issue_path :number => @current_issue.number %>">Current Issue</a> |</li>
+				<li><a href="<%= submit_work_path %>">Submit Work</a></li>
+			</ul>
+			
+			&copy; 2009 Old Brick Press, LLC. All Rights Reserved.
+		</div>
+		
+  </div>
+    
+	<script type="text/javascript"> Cufon.now(); </script>
+  
+  <%= render :partial => "layouts/analytics" %>
+</body>
 </html>

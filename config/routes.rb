@@ -17,9 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   
   ###
-  # Info!
-  map.learn_more '/learn', :controller => 'main', :action => 'learn_more'
-  map.privacy_policy '/privacy', :controller => 'main', :action => 'privacy'
+  # Issues
+  map.issue '/issues/:number', :controller => "issues", :action => "show"
   
   ###
   # Mailing List

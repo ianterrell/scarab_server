@@ -43,7 +43,23 @@
     <br/>
     <%= f.text_area :preview_description, :class => "textarea" %>
     <%= f.error_message_on :preview_description %>
-    <small>Description of the issue for the preview page.  HTML allowed.</small>
+    <small>Description of the issue for the preview page on the iPhone.  HTML allowed.</small>
+  </div>
+  
+  <div>
+    <%= f.label :short_web_description %>
+    <br/>
+    <%= f.text_area :short_web_description, :class => "textarea" %>
+    <%= f.error_message_on :short_web_description %>
+    <small>Description of the issue for the homepage.  HTML allowed.</small>
+  </div>
+  
+  <div>
+    <%= f.label :long_web_description %>
+    <br/>
+    <%= f.text_area :long_web_description, :class => "textarea" %>
+    <%= f.error_message_on :long_web_description %>
+    <small>Description of the issue for the issue's dedicated webpage.  HTML allowed.</small>
   </div>
 
   <p><%= submit_tag 'Submit', :class => "button" %></p>

@@ -1,0 +1,153 @@
+/*-------------------- Global --------------------*/
+
+body {background: #000 url(../images/bg.jpg) 50% 0 no-repeat; font-size: 12px; color: #171717; font-family: "Lucida Grande", lucida grande, Verdana, Helvetica, Arial; line-height: 18px; overflow: auto;}
+a, a:visited, a:active {color: #366cd0;}
+a:hover {text-decoration: none;}
+
+#container {width: 960px; margin: 0 auto; margin-top: 28px; position: relative; overflow: visible;}
+
+#logo {width: 217px; height: 306px; text-indent: -999em; background: url(../images/logo.png) 0 0 no-repeat; position: absolute; z-index: 3; top: 28px; margin-left: 50%; left: -495px;}
+
+#leftcol {width: 173px; height: 511px; background: #a8a8a8 url(../images/bg-sidebar.png) 0 0 no-repeat; margin-top: 193px; float: left;}
+
+#leftcol ul {width: 173px; margin-top: 100px;}
+#leftcol ul li {width: 173px;}
+#leftcol ul li a {width: 173px; display: block;}
+#leftcol ul li a.podcast {height: 73px; background: url(../images/sidebar-bg-podcast.png) 0 0 no-repeat; text-indent: -999em;}
+#leftcol ul li a.facebook {height: 80px; background: url(../images/sidebar-bg-facebook.png) 0 0 no-repeat; text-indent: -999em;}
+#leftcol ul li a.twitter {height: 77px; background: url(../images/sidebar-bg-twitter.png) 0 0 no-repeat; text-indent: -999em;}
+#leftcol ul li a.podcast:hover {background-position: 0 -73px;}
+#leftcol ul li a.facebook:hover {background-position: 0 -80px;}
+#leftcol ul li a.twitter:hover {background-position: 0 -77px;}
+
+#leftcol #submit-box {width: 173px; height: 161px; background: url(../images/sidebar-submit-bg.png) 0 0 no-repeat; text-align: center; padding-top: 20px; position: relative;}
+#leftcol #submit-box p {color: #484848; margin-top: 5px;}
+#leftcol #submit-box a.submit-btn {width: 134px; height: 47px; background: url(../images/submit-btn.png) 0 0 no-repeat; text-indent: -999em; display: block; position: absolute; bottom: 20px; left: 50%; margin-left: -68px;}
+#leftcol #submit-box a.submit-btn:hover {background-position: 0 -47px;}
+
+#main-content {float: left; width: 787px;}
+
+div.interior {background: #dadada url(../images/bg-content.png) 0 0 no-repeat; min-height: 712px; position: relative; padding-bottom: 10px;}
+div.interior-header {width: 500px !important;}
+#content-bottom {width: 100%; height: 8px; background: url(../images/content-bttom.png) 0 0 no-repeat; position: absolute; bottom: 0;}
+#interior-body {width: 723px; background: url(../images/divider-wide.png) 0 0 no-repeat; padding: 25px 32px 0 32px;}
+#interior-body p {margin-bottom: 26px;}
+
+#issue-header {width: 324px; height: 70px; padding: 18px 0 0 32px;}
+#issue-header div.issue-icon {float: left; margin-right: 15px; height: 53px; width: 53px; position: relative;}
+#issue-header div.issue-icon span {color: #dedede; position: absolute; top: 22px; left: 0px; font-size: 8px; width: 100%; text-align: center;}
+#issue-header h3 {margin-bottom: 0 !important;}
+#issue-header #header-text {float: left;}
+#issue-header #header-text span {font-size: 14px; color: #878787; margin-right: 8px;}
+
+#footer {width: 904px; height: 71px; padding: 0 28px; background: url(../images/bg-footer.png) 0 0 no-repeat; clear: both; position: relative; top: 26px; color: #5c5c5c; line-height: 71px; padding-bottom: 50px;}
+#footer a { color: #5c5c5c; }
+#footer ul {float: right; height: 71px;}
+#footer ul li {height: 71px; display: inline;}
+#footer ul li a {color: #aeaeae; font-weight: bold;}
+#footer ul li a:hover {text-decoration: none;}
+div.skinny {width: 731px !important; background: url(../images/bg-footer-skinny.png) 0 0 no-repeat !important; margin-left: 173px;}
+
+h2 {color: #c5c5c5; font-size: 37px;}
+.cufon-active h2 {letter-spacing: -0.05em;}
+h3 {font-size: 28px; margin: 4px 0 10px 0;}
+.cufon-active h3 {letter-spacing: -0.05em;}
+h4 {font-size: 18px; margin-bottom: 12px;}
+
+ul.list {margin-bottom: 25px;}
+ul.list li {padding-left: 15px; background: url(../images/bullet.png) 0 50% no-repeat; line-height: 21px;}
+
+form {margin-bottom: 25px;}
+label {font-weight: bold;}
+input.text {border: 1px solid #acacac; padding: 5px; width: 250px; display: block; margin-bottom: 15px; color: #787878;}
+input.button {border: 1px solid #999; padding: 5px; width: 100px; display: block; margin-top: 15px; color: #000;}
+textarea {border: 1px solid #acacac; padding: 5px; width: 250px; height: 150px; display: block; color: #787878;}
+
+span.sifr-me {font-size: 13px; font-weight: bold; color: #1d1d1d;}
+p.large-text {font-size: 15px; line-height: 24px;}
+.no-marg {margin-right: 0 !important;}
+
+/*-------------------- Home --------------------*/
+
+#home-header {margin: 32px 0 0 50px; position: relative; height: 161px;}
+#home-header p {font-size: 14px; color: #cacaca; line-height: 24px; width: 525px; margin-top: 13px;}
+#home-header a.app-store {width: 233px; height: 105px; background: url(../images/app-store.png) 0 0 no-repeat; display: block; text-indent: -999em; position: absolute; right: -22px; top: 31px; z-index: 10;}
+#home-header a.app-store:hover {background-position: 0 -100px;}
+
+#home-content {width: 356px; height: 511px; background: #ebebeb url(../images/bg-home-content.png) 0 0 no-repeat; float: left;}
+
+#home-screenshots {width: 431px; height: 511px; background: url(../images/bg-home-screenshots.png) 0 0 no-repeat; float: left; position: relative;}
+#home-screenshots #iphone {width: 325px; height: 575px; background: url(../images/iphone.png) 0 0 no-repeat; position: absolute; top: -34px; right: -17px; z-index: 100;}
+#home-screenshots #iphone #slides {width: 241px; height: 361px; margin: 108px auto;}
+
+div.main-body {width: 100%; background: url(../images/home-main-seperator.png) top right no-repeat;}
+div.main-body p {padding: 26px 32px 30px 32px; font-size: 15px; line-height: 22px;}
+div.main-body a {color: #565656;}
+div.main-body h4 {font-size: 21px; margin-bottom: 6px;}
+
+ul#authors {width: 100%; margin-left: -2px;}
+ul#authors li {position: relative; display: block; float: left; height: 62px; width: 62px; margin-left: -2px;}
+ul#authors li a {position: absolute !important; display: block !important;}
+ul#authors li img {margin: 5px 0 0 5px;}
+ul#authors li a img {margin: 0;}
+
+div.authors {padding: 26px 32px 30px 32px;}
+div.authors a.more {color: #366cd0; position: relative; top: 8px; margin: 0 auto; float: none;}
+
+a.scroll-btn {width: 150px; height: 30px; text-indent: -999em; display: block; cursor: pointer;}
+#scroll-up {background: url(../images/scroll-up.png) 0 0 no-repeat;}
+#scroll-down {background: url(../images/scroll-down.png) 0 0 no-repeat;}
+
+div.scrollable a {border: 6px solid #767676; display: block; width: 81px; margin: 12px 0 0 25px; position: relative;}
+div.scrollable {width: 150px; height: 450px; background: url(../images/scroll-bg.png) 0 0 no-repeat; overflow: hidden; position:relative; padding-top: 1px;}
+div.scrollable div.items {position:absolute; height:20000em;}
+
+div.selected {width: 8px; height: 16px; background: url(../images/select-arrow.png) 0 0 no-repeat; overflow: hidden; position: absolute; top: -6px; left: 87px; text-indent: -999em;}
+
+
+/*-------------------- Issue Page --------------------*/
+
+a.app-store-interior {width: 181px; height: 75px; background: url(../images/app-store-interior.png) 0 0 no-repeat; display: block; text-indent: -999em; position: absolute; right: 20px; top: 6px;}
+a.app-store-interior:hover {background-position: 0 -76px;}
+
+a.dl-issue {float: right; font-size: 18px; position: relative; top: -33px; margin-bottom: -33px;}
+
+div.author-col {width: 227px; float: left; margin: 12px 20px 0 0;}
+div.author-box {width: 227px; margin-bottom: 20px;}
+div.author-box div.top {width: 100%; height: 5px; background: url(../images/authors-box-top.png) 0 0 no-repeat;}
+div.author-box div.box-body {width: 100%; background: url(../images/authors-box-bg.png) 0 0 repeat-y; overflow: auto;}
+div.author-box div.bottom {width: 100%; height: 5px; background: url(../images/authors-box-bottom.png) 0 0 no-repeat;}
+div.author-box div.user-pic {margin: 6px 0 0 11px; float: left;}
+div.author-box div.user-pic a {position: absolute !important; display: block !important;}
+div.author-box div.user-pic img {margin: 5px 0 0 5px;}
+div.author-box div.user-pic a img {margin: 0;}
+div.author-box div.user-name {float: left; margin: 9px 0 0 14px;}
+div.author-box div.user-name span {font-size: 15px; font-weight: bold;}
+div.author-box div.user-name small {color: #787878; font-size: 11px;}
+div.author-box p {clear: both; position: relative; top: 14px; margin-left: 14px; width: 90%;}
+
+
+/* Inside menu */
+#leftcol ul.menu {width: 173px; margin-top: 120px;}
+#leftcol ul.menu li {width: 173px; padding: 10px; border-bottom: 1px solid gray;}
+#leftcol ul.menu li.selected { background-color: #dfdfdf;}
+#leftcol ul.menu li a {width: 173px; display: block; font-size: 18px;}
+
+/* Inside tables */
+table th { background-color: #ddd;}
+table th, td { border: 1px solid #ccc; padding: 5px;}
+
+/* Log in */
+#login-table td { border: none; padding: 0px 10px 0px 0px;}
+
+/* -------------------- Flash ----------------------*/
+.flash{ padding:10px 10px 10px 30px; margin:15px 15px 15px 30px; }
+.flash a{ display:block; width:15px; float:right; text-decoration:none; text-align:center; }
+.flash a:hover { background: none; }
+.error, .notice, .success { border:2px solid #ddd; }
+.error { background:#FBE3E4 url(/images/error.png) 7px 50% no-repeat; color:#8a1f11; border-color:#FBC2C4; }
+.notice { background:#FFF6BF url(/images/notice.png) 7px 50% no-repeat; color:#514721; border-color:#FFD324; }
+.success { background:#E6EFC2 url(/images/accept.png) 7px 50% no-repeat; color:#264409; border-color:#C6D880; }
+.error a { color:#8a1f11; }
+.notice a { color:#514721; }
+.success a { color:#264409; }

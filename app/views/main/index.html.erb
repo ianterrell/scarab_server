@@ -1,62 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<div id="home-header">
+	<h2>The First Literary Magazine for your iPhone</h2>
+	<!-- TODO <a class="app-store" href="#">Available in the iPhone App Store</a> -->
+	<p>Listen to and read along with the best in contemporary poetry and prose.  Eleven new works and an interview monthly, delivered right into your hand.  Only on the iPhone and iPod touch.</p>
+</div>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="iPhone, iPod Touch, poetry, literature, short stories, mobile, magazine, literary magazine" />
-    <meta name="description" content="The world's only mobile literary magazine, produced for the iPhone and iPod touch." />
-    <title>Scarab :: The world's only mobile literary magazine, produced for the iPhone and iPod touch.</title>
-   	<%= stylesheet_link_merged :homepage %>
-   	<%= javascript_include_merged :base %>
-  </head>
-  <body>
-    <div class="container">  
-    	<%= display_flash :error, :notice, :success %>
-      
-      <div class="column span-10 first" id="logo">
-        <img src="/images/logo.png">
-      </div>
-      
-      <div class="column span-14 last">
-          <div class="highlights rounded" id="description">
-            <p>
-              <span><em>Scarab</em></span> is the world's first and only <span>mobile literary magazine</span>, 
-              and features <span>full length audio</span> of the <span>authors reading their works</span>.
-              Coming soon to the <span>iPhone</span> and <span>iPod Touch</span>.  
-            </p>
-            <%= link_to "learn more &rarr;", learn_more_path, :class => "rounded-small" %>
-          </div>
-          
-          <div class="column span-7 first">
-            <div class="highlights rounded">
-              <h2>Get notified when we launch!</h2>
-              <% form_for @mailing_list_recipient do |f| %>
-                <%= f.text_field :email, :class => "text" %>
-                <%= submit_tag 'Sign up', :class => "button" %>
-              <% end %>
-              <p>
-                Our mailing list is <span>very low volume</span> and we promise there will be <span>no spam</span>
-                and we <span>won't sell</span> your address.
-              </p>
-            </div>
-          </div>
-      
-      
-          <div class="column span-7 last">
+<div id="home-content">
+	
+	<div id="issue-header">
+		<div class="issue-icon" style="background-color: #<%= @current_issue.color %>;">
+			<img src="/images/icon-img.png" alt="Issue <%= @current_issue.number %>" />
+			<span><%= @current_issue.number %></span>
+		</div>
+		<div id="header-text">
+			<h3><%= @current_issue.title %></h3>
+			<span>Current Issue</span> <a href="<%= issue_path :number => @current_issue.number %>">Read more &rsaquo;</a>
+		</div>
+	</div>
+	
+	<div class="main-body">
+		<p><strong><%= @current_issue.title %></strong> - <%= @current_issue.short_web_description %> <a href="<%= issue_path :number => @current_issue.number %>">Read more »</a></p>
+	</div>
+	
+	<div class="main-body authors">
+		
+		<h4>This Issue's Authors</h4>
+		
+		<ul id="authors">
+		  <% @current_issue.authors[0,5].each do |author| %>
+			<li>
+				<a href="<%= issue_path :number => @current_issue.number %>"><img src="/images/authors-border.png" alt="" /></a>
+        <%= image_tag author.photo.url(:web) %>
+			</li>
+			<% end %>
+		</ul>
+		<br clear="all" />
 
-            <div class="highlights rounded">
-              <div class="submit-your-work">
-                <%= link_to "Submit your work!", submit_work_path, :id => "submission-link", :class => "rounded" %>
-                <p><%= link_to "current contributors please login here", dashboard_path, :class => "rounded-small" %></p>
-              </div>
-            </div>
-          </div>
+		<a href="<%= issue_path :number => @current_issue.number %>" class="more">Click here to see all of this issues' authors &raquo;</a>
+		
+	</div>
+	
+</div>
 
-      </div>
-
-      <%= render :partial => "layouts/footer" %>
-    </div>
-    <%= render :partial => "layouts/analytics" %>
-  </body>
-</html>
+<div id="home-screenshots">
+	
+	<div id="iphone">
+		<div id="slides"><img src="/images/scroll-images/1.jpg" /></div>
+	</div>
+	
+	<a id="scroll-up" class="scroll-btn prevPage">Scroll Up</a>
+	
+	<div class="scrollable vertical">
+		<div class="items"> 
+			<a href="#" rel="/images/scroll-images/1.jpg" class="image"><img src="/images/scroll-images/1-thumb.png" alt="" /><div class="selected">&nbsp;</div></a>
+			<a href="#" rel="/images/scroll-images/2.jpg" class="image"><img src="/images/scroll-images/2-thumb.png" alt="" /></a>
+			<a href="#" rel="/images/scroll-images/3.jpg" class="image"><img src="/images/scroll-images/3-thumb.png" alt="" /></a>
+			<a href="#" rel="/images/scroll-images/4.jpg" class="image"><img src="/images/scroll-images/4-thumb.png" alt="" /></a>
+			<a href="#" rel="/images/scroll-images/5.jpg" class="image"><img src="/images/scroll-images/5-thumb.png" alt="" /></a>
+			<a href="#" rel="/images/scroll-images/6.jpg" class="image"><img src="/images/scroll-images/6-thumb.png" alt="" /></a>
+			<a href="#" rel="/images/scroll-images/7.jpg" class="image"><img src="/images/scroll-images/7-thumb.png" alt="" /></a>
+		</div>
+	</div>
+		
+	<a id="scroll-down" class="scroll-btn nextPage">Scroll Down</a>
+	
+</div>

@@ -6,6 +6,16 @@
 
 <p>Color: <span style="background-color:#<%= @issue.color %>;"><%= @issue.color %></span></p>
 
+<h4>Short Web Description for the homepage</h4>
+<p>
+  <%= @issue.short_web_description %>
+</p>
+
+<h4>Description for dedicated webpage</h4>
+<p>
+  <%= @issue.long_web_description %>
+</p>
+
 <br/><br/>
 
 <h4>Works</h4>

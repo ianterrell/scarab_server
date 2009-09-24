@@ -1,13 +1,21 @@
-<h2>FAQ</h2>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>FAQ</h3>
+		<span>If you have any questions not here, email <a href="mailto:support@scarabmag.com">support@scarabmag.com</a></span>
+	</div>
+</div>
 
-<% @categories.each do |category| %>
-  <h3><%= category.name %></h3>
+<div id="interior-body">
+
+  <% @categories.each do |category| %>
+    <h4><%= category.name %></h4>
   
-  <% category.questions.each do |question| %>
-    <p>
-      <b><%= question.body %></b>
-      <br/><%= question.answer %>
-    </p>
+    <% category.questions.each do |question| %>
+      <p>
+        <b><%= question.body %></b>
+        <br/><%= question.answer %>
+      </p>
+    <% end %>
+  
   <% end %>
-  
-<% end %>
+</div>

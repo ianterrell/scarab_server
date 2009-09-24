@@ -1,13 +1,20 @@
-<h2>Request password reset</h2>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>Request password reset</h3>
+		<span>No worries, we all do it.</span>
+	</div>
+</div>
 
-<%= error_messages_for :user %>
+<div id="interior-body">
+  <%= error_messages_for :user %>
 
-<p>Have you forgotten your password? Don't worry, simply enter your email address below and we will send you a link to enable you to reset your password.</p>
+  <p>Enter your email address below and we will send you a link to enable you to reset your password.</p>
 
-<% form_for :user do |f| -%>
+  <% form_for :user do |f| -%>
 
-<p><%= f.label :email %><br />
-<%= f.text_field :email, :class => "text" %></p>
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email, :class => "text" %></p>
 
-<p><%= submit_tag 'Submit', :class => "button" %></p>
-<% end -%>
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+  <% end -%>
+</div>

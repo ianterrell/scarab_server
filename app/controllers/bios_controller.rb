@@ -1,4 +1,6 @@
 class BiosController < ApplicationController
+  layout "contributor"
+  
   resource_controller
   before_filter :login_required
   

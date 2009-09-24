@@ -1,27 +1,35 @@
-<h2>Reset password</h2>
-
-<% form_for :user, @user do |f| -%>
-
-<div>
-  <%= f.label :email %>
-  <br/>
-  <%= f.text_field :email, :class => "text" %>
-  <%= f.error_message_on :email %>
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>Reset password</h3>
+		<span>Just choose a new one, no sweat.</span>
+	</div>
 </div>
 
-<div>
-  <%= f.label :password %>
-  <br/>
-  <%= f.password_field :password, :class => "text" %>
-  <%= f.error_message_on :password %>
+<div id="interior-body">
+  <% form_for :user, @user do |f| -%>
+
+  <div>
+    <%= f.label :email %>
+    <br/>
+    <%= f.text_field :email, :class => "text" %>
+    <%= f.error_message_on :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <br/>
+    <%= f.password_field :password, :class => "text" %>
+    <%= f.error_message_on :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <br/>
+    <%= f.password_field :password_confirmation, :class => "text" %>
+    <%= f.error_message_on :password_confirmation %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+  <% end -%>
 </div>
 
-<div>
-  <%= f.label :password_confirmation, "Confirm Password" %>
-  <br/>
-  <%= f.password_field :password_confirmation, :class => "text" %>
-  <%= f.error_message_on :password_confirmation %>
-</div>
-
-<p><%= submit_tag 'Submit', :class => "button" %></p>
-<% end -%>
