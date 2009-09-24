@@ -1,12 +1,12 @@
 --- 
 javascripts: 
 - base: 
-  - jquery-1.3.1.min.js
-  - jquery-ui-1.7.1.custom.min.js
-  - jquery.tools.min.js
-  - cufon.js
-  - museo-sans.font.js
-  - screen.js
+  - jquery-1.3.1.min
+  - jquery-ui-1.7.1.custom.min
+  - jquery.tools.min
+  - cufon
+  - museo-sans.font
+  - screen
   - jrails
   - application
 stylesheets: 
