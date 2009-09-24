@@ -1,5 +1,5 @@
-<h2 class="review"><%= link_to image_for_content_type(@submission.document.content_type) + @submission.title, @submission.document.url %></h2>
-<h3>by <%= @submission.attribution %></h3>
+<h3 class="review"><%= link_to image_for_content_type(@submission.document.content_type) + " " + @submission.title, @submission.document.url %></h3>
+<h4>by <%= @submission.attribution %></h4>
 
 <p><%= link_to @submission.user.email, "mailto:#{@submission.user.email}" %> <%= @submission.user.bio.phone %></p>
 

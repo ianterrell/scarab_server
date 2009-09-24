@@ -1,5 +1,5 @@
-<h2>Issue <%= @issue.number %></h2>
-<h3><%= @issue.title %></h3>
+<h3>Issue <%= @issue.number %></h3>
+<h4><%= @issue.title %></h4>
 <%= @issue.subtitle %>
 
 <%= render :partial => "/admin/common/publish", :locals => { :publishable => @issue } %>

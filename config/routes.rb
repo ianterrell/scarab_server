@@ -52,6 +52,9 @@ ActionController::Routing::Routes.draw do |map|
         :reject => :post, 
         :accept => :post 
       }
+      
+    admin.cache_control "cache", :controller => "cache"  
+    admin.cache_expire "cache_expire", :controller => "cache", :action => "expire"
   end
   
   # TODO: limit routes to only those implemented?

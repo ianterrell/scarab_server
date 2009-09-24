@@ -1,3 +1,5 @@
+<h3><%= params[:state] ? params[:state].titleize : "All" %> Submissions</h3>
+
 <% if @submissions.empty? %>
   <p>
     There aren't any submissions<% unless params[:state].blank? %> marked as <%= params[:state].titleize %><% end %>.

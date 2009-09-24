@@ -1,5 +1,5 @@
-<h2>Issue <%= @issue.number %></h2>
-<h3><%= @issue.title %></h3>
+<h3>Issue <%= @issue.number %></h3>
+<h4><%= @issue.title %></h4>
 <%= @issue.subtitle %>
 
 <%= iphone_display @issue.preview_description %>
@@ -19,7 +19,7 @@
 <br/><br/>
 
 <h4>Works</h4>
-<ul id="issue_works">
+<ul id="issue_works" class="list">
   <% @issue.works.each do |work| %>
     <li id="work_<%= work.id %>" class="issue-work-item">
       <%= link_to work.title, [:admin, work] %> by <%= link_to work.author.name, [:admin, work.author] %>

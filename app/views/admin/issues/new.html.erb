@@ -1,4 +1,4 @@
-<h2>New Issue</h2>
+<h3>New Issue</h3>
 
 <% form_for [:admin, @issue] do |f| -%>
   <div>
@@ -25,7 +25,7 @@
   <div>
     <%= f.label :color %>
     <br/>
-    <%= f.text_field :color, :class => "text" %>
+    <%= f.text_field :color, :class => "text no-margin" %>
     <%= f.error_message_on :color %>
     <small>Hexadecimal color of the issue, i.e. FF0000 for red or 00FF00 for green.</small>
   </div>

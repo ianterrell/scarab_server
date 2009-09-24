@@ -1,4 +1,4 @@
-<h2>Authors</h2>
+<h3>Authors</h3>
 
 <% if @authors.empty? %>
   <p>
@@ -20,10 +20,10 @@
   <%= will_paginate @authors %>
 <% end %>
 
-
+<br/>
 <p>
   Authors are considered "published" once they are referenced in an issue.  After that point, all content is seen by
-  the public -- so double check spelling, proofread bios, and make sure all links are accurate before then!
+  the public&mdash;so double check spelling, proofread bios, and make sure all links are accurate before then!
 </p>
 
 <%= link_to "New Author", new_admin_author_path %>

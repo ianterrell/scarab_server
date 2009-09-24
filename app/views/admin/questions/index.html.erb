@@ -1,5 +1,7 @@
+<h3>FAQs by Category</h3>
+
 <% @questions.group_by{|q|q.category.name}.each do |question, questions| %>
-  <h3><%= question %></h3>
+  <h4><%= question %></h4>
   <table>
     <tr>
       <th>Question</th>

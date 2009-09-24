@@ -18,6 +18,7 @@
     <br/>
     <%= f.file_field :audio %>
     <%= f.error_message_on :audio %>
+    <% if f.object.audio.file? %> currently <%= link_to f.object.audio.url, f.object.audio.url %><% end %>
   </div>
   
   <div>

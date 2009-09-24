@@ -32,6 +32,7 @@
     <br/>
     <%= f.file_field :photo %>
     <%= f.error_message_on :photo %>
+    <% if f.object.photo.file? %> currently <%= link_to f.object.photo.url, f.object.photo.url %><% end %>
   </div>
 
   <p><%= submit_tag 'Submit', :class => "button" %></p>

@@ -1,5 +1,5 @@
-<h2>Interview with <%= link_to @interview.author.name, [:admin, @interview.author] %></h2>
-<h3><%= @interview.date %></h3>
+<h3>Interview with <%= link_to @interview.author.name, [:admin, @interview.author] %></h3>
+<h4><%= @interview.date %></h4>
 
 <%= iphone_display @interview.body %>
 
@@ -11,7 +11,7 @@
   <%= link_to "Edit Interview", edit_admin_interview_path(@interview) %>
 </p>
 
-<h3>Footnotes</h3>
+<h4>Footnotes</h4>
 
 <% @interview.footnotes.each do |footnote| %>
   <a name="footnote_<%= footnote.id %>"></a>

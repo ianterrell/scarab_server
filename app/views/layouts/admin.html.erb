@@ -1,64 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<% @main_content_class = "interior" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="iPhone, iPod Touch, poetry, literature, short stories, mobile, magazine, literary magazine" />
-    <meta name="description" content="The world's only mobile literary magazine.  Coming soon to the iPhone and iPod touch." />
-    <title>Scarab</title>
-   	<%= stylesheet_link_merged :base %>
-   	<%= javascript_include_merged :base %>
-  </head>
-  <body>
-    <div class="container" style="position:relative;">
-      <div id="user-bar">
-        Logged in as <%= current_user.email %>
-        <%= link_to "Log out", logout_path, { :title => "Log out" } %>
-      </div>
-      <div class="column span-3 first" id="left-nav">
-        <div id="small-logo">
-          <%= link_to image_tag("scarab-small.png"), dashboard_path %>
-        </div>
-        
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", admin_issues_path %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'works' %>><%= link_to "Works", admin_works_path %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", admin_authors_path %></li>
-        </ul>
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
-        </ul>
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
-        </ul>
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "FAQ Cats", admin_categories_path %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "FAQs", admin_questions_path %></li>
-        </ul>
-        
-        <ul>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'first_reading' || (@submission && !@submission.new_record? && @submission.first_reading?)) %>><%= link_to "Slush (#{Submission.first_reading.count})", admin_submissions_path(:state => "first_reading") %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'second_reading' || (@submission && !@submission.new_record? && @submission.second_reading?)) %>><%= link_to "Slush Plus (#{Submission.second_reading.count})", admin_submissions_path(:state => "second_reading") %></li>          
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'rejected' || (@submission && @submission.rejected?)) %>><%= link_to "Rejected", admin_submissions_path(:state => "rejected") %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'accepted' || (@submission && @submission.accepted?)) %>><%= link_to "Accepted", admin_submissions_path(:state => "accepted") %></li>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (@controller.action_name == 'unassigned' || (@submission && @submission.unassigned?)) %>><%= link_to "Unassigned", unassigned_admin_submissions_path %>
-          <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && @controller.action_name != 'unassigned' && params[:state].blank? && !@submission %>><%= link_to "All", admin_submissions_path %></li>
-        </ul>
-        
-        <ul>
-          <li><%= link_to "Contributor Dashboard", dashboard_path %></li>
-        </ul>
-      </div>
-      <div class="column span-21 last">
-      	<%= display_flash :error, :notice, :success %>
-      	<div id="content">
-          <%= yield %>
-        </div>
-      </div>
-      
-      <%= render :partial => "layouts/footer" %>
-    </div>
-    <%= render :partial => "layouts/analytics" %>
-  </body>
-</html>
+<% content_for :leftcol do %>
+  <ul class="admin-menu" style="margin-top:110px;">
+    <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", admin_issues_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'works' %>><%= link_to "Works", admin_works_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", admin_authors_path %></li>
+  </ul>
+  <ul class="admin-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
+  </ul>
+  <ul class="admin-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
+  </ul>
+  <ul class="admin-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "FAQ Cats", admin_categories_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "FAQs", admin_questions_path %></li>
+  </ul>
+
+  <ul class="admin-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'first_reading' || (@submission && !@submission.new_record? && @submission.first_reading?)) %>><%= link_to "Slush (#{Submission.first_reading.count})", admin_submissions_path(:state => "first_reading") %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'second_reading' || (@submission && !@submission.new_record? && @submission.second_reading?)) %>><%= link_to "Slush Plus (#{Submission.second_reading.count})", admin_submissions_path(:state => "second_reading") %></li>          
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'rejected' || (@submission && @submission.rejected?)) %>><%= link_to "Rejected", admin_submissions_path(:state => "rejected") %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'accepted' || (@submission && @submission.accepted?)) %>><%= link_to "Accepted", admin_submissions_path(:state => "accepted") %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (@controller.action_name == 'unassigned' || (@submission && @submission.unassigned?)) %>><%= link_to "Unassigned", unassigned_admin_submissions_path %>
+    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && @controller.action_name != 'unassigned' && params[:state].blank? && !@submission %>><%= link_to "All", admin_submissions_path %></li>
+  </ul>
+
+  <ul class="admin-menu">   
+      <li><%= current_user.email %><%= link_to "log out", logout_path, :style => "font-size:12px;" %></li>
+  </ul>
+
+  <ul class="admin-menu">
+    <li><%= link_to "Contributor Dashboard", dashboard_path %></li>
+    <li class="cache-link"><%= link_to "Cache Control", admin_cache_control_path %></li>
+  </ul>
+<% end %>
+
+<% inside_layout 'application' do -%>
+	<%= display_flash :error, :notice, :success %>
+  <div id="interior-body">
+    <%= yield %>
+  </div>
+<% end -%>

@@ -1,0 +1,8 @@
+<h3>Cache Control</h3>
+
+<h4><%= link_to "Homepage", root_path %></h4>
+<%= expire_cache_button "homepage" %>
+
+<h4><%= Issue.published.count %> Issue Pages </h4>
+<%= expire_cache_button "issue_pages" %>
+
