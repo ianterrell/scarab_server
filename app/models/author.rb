@@ -13,4 +13,8 @@ class Author < ActiveRecord::Base
   def photo_url
     self.photo.url(:medium)
   end
+  
+  def web_biography
+    self.web_bio.blank? ? self.bio : self.web_bio
+  end
 end

@@ -21,6 +21,14 @@
   </div>
   
   <div>
+    <%= f.label :web_bio %>
+    <br/>
+    <%= f.text_area :web_bio, :class => "textarea" %>
+    <%= f.error_message_on :web_bio %>
+    <small>If this bio is set, it will be displayed on the web. Otherwise, leave blank to display the iPhone bio on the web, too.</small>
+  </div>
+
+  <div>
     <%= f.label :user_id, "Submitting User" %>
     <br/>
     <%= f.select :user_id, users_options, :include_blank => true %>

@@ -95,8 +95,6 @@ ActionController::Routing::Routes.draw do |map|
   # Submissions
   map.submit_work "/submit", :controller => "submissions", :action => "new"
   map.resources :submissions, :only => [:new, :create]
-    
-    
   map.resource :bio
   
 

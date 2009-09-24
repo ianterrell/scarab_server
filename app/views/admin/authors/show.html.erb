@@ -3,6 +3,11 @@
 
 <%= iphone_display @author.bio %>
 
+<h5>Bio for webpage</h5>
+<p>
+  <%= @author.web_biography %>
+</p>
+
 <%= image_tag @author.photo.url(:web) %>
 <%= link_to image_tag(@author.photo.url(:medium)), @author.photo.url %>
 
