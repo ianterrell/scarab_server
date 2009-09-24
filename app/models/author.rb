@@ -15,6 +15,6 @@ class Author < ActiveRecord::Base
   end
   
   def web_biography
-    self.web_bio.blank? ? self.bio : self.web_bio
+    self.web_bio.blank? ? self.bio.gsub("\n","<br/>") : self.web_bio.gsub("\n","<br/>")
   end
 end
