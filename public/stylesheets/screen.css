@@ -161,6 +161,10 @@ table th, td { border: 1px solid #ccc; padding: 5px;}
 }
 .iphone-display a { padding: 0px; text-decoration: none; color: #576b95; font-weight:bold;}
 
+/* Form Errors */
+.fieldWithErrors, .formError { color: #FF6B6B; }
+.fieldWithErrors input, .fieldWithErrors textarea { background-color: #FFD1D1; border: 2px solid #FF6B6B; }
+.fieldWithErrors input:focus { background-color: #FFD1D1; border: 2px solid red; }
 
 /* -------------------- Flash ----------------------*/
 .flash{ padding:10px 10px 10px 30px; margin:15px 15px 15px 30px; }
