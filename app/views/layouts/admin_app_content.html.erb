@@ -1,0 +1,12 @@
+<% inside_layout 'admin' do -%>
+  <ul class="admin-sub-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", admin_issues_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'works' %>><%= link_to "Works", admin_works_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", admin_authors_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
+  </ul>
+  <div class="clearfix">
+    <%= yield %>
+  </div>
+<% end -%>

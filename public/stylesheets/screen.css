@@ -142,6 +142,14 @@ div.author-box p {clear: both; position: relative; top: 14px; margin-left: 14px;
 #leftcol ul.admin-menu li.cache-link { border-bottom: none; }
 #leftcol ul.admin-menu li.cache-link a { color: #dd0000; }
 
+/* Admin submenu */
+ul.admin-sub-menu { width: 765px; height: 20px; margin-bottom: 20px; margin-top: -25px; margin-left: -25px; padding-left: 15px; display: block; border-bottom: 1px solid gray;}
+ul.admin-sub-menu li { display: block; float: left; padding: 2px 10px; }
+ul.admin-sub-menu li a { color: #666; display: block; font-size: 12px; text-decoration: none;}
+ul.admin-sub-menu li.selected a { font-weight: bold; color: #0e4bac;}
+ul.admin-sub-menu li.cache-link { border-bottom: none; }
+ul.admin-sub-menu li.cache-link a { color: #dd0000; }
+
 /* Inside tables */
 table th { background-color: #ddd;}
 table th, td { border: 1px solid #ccc; padding: 5px;}

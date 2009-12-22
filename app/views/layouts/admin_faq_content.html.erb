@@ -1,0 +1,9 @@
+<% inside_layout 'admin' do -%>
+  <ul class="admin-sub-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "Categories", admin_categories_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "Questions", admin_questions_path %></li>
+  </ul>
+  <div class="clearfix">
+    <%= yield %>
+  </div>
+<% end -%>

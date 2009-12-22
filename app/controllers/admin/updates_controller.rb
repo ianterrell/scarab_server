@@ -1,5 +1,6 @@
 class Admin::UpdatesController < Admin::AdminController
   is_publishable
+  layout 'admin_app_content'
     
 private
   def collection

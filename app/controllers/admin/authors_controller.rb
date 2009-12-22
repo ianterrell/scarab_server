@@ -1,5 +1,6 @@
 class Admin::AuthorsController < Admin::AdminController
   belongs_to :issue
+  layout 'admin_app_content'
   
   def create_from_user
     user = User.find params[:user_id]

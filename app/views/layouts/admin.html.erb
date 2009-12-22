@@ -2,19 +2,8 @@
 
 <% content_for :leftcol do %>
   <ul class="admin-menu" style="margin-top:110px;">
-    <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", admin_issues_path %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'works' %>><%= link_to "Works", admin_works_path %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'authors' %>><%= link_to "Authors", admin_authors_path %></li>
-  </ul>
-  <ul class="admin-menu">
-    <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
-  </ul>
-  <ul class="admin-menu">
-    <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
-  </ul>
-  <ul class="admin-menu">
-    <li <%= 'class="selected"' if @controller.controller_name == 'categories' %>><%= link_to "FAQ Cats", admin_categories_path %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'questions' %>><%= link_to "FAQs", admin_questions_path %></li>
+    <li <%= 'class="selected"' if ["issues", "works", "authors", "updates", "interviews"].include?(@controller.controller_name) %>><%= link_to "App Content", admin_issues_path %></li>
+    <li <%= 'class="selected"' if ["questions", "categories"].include?(@controller.controller_name) %>><%= link_to "FAQ", admin_categories_path %></li>
   </ul>
 
   <ul class="admin-menu">
