@@ -2,10 +2,10 @@
 
 <% content_for :leftcol do %>
   <ul class="admin-menu" style="margin-top:110px;">
-    <li <%= 'class="selected"' if (["issues", "works", "authors", "updates", "interviews"].include?(@controller.controller_name) && !@controller.name.split("::").include?("Reports")) %>><%= link_to "App Content", admin_issues_path %></li>
+    <li <%= 'class="selected"' if (["issues", "works", "authors", "updates", "interviews"].include?(@controller.controller_name) && !@controller.class.name.split("::").include?("Reports")) %>><%= link_to "App Content", admin_issues_path %></li>
     <li <%= 'class="selected"' if ["submissions"].include?(@controller.controller_name) %>><%= link_to "Submissions (#{Submission.first_reading.count + Submission.second_reading.count})", admin_submissions_path(:state => "first_reading") %></li> 
     <li <%= 'class="selected"' if ["questions", "categories"].include?(@controller.controller_name) %>><%= link_to "FAQ", admin_categories_path %></li>
-    <li <%= 'class="selected"' if @controller.name.split("::").include?("Reports") %>><%= link_to "$ Reports", admin_reports_quarters_path %></li>
+    <li <%= 'class="selected"' if @controller.class.name.split("::").include?("Reports") %>><%= link_to "$ Reports", admin_reports_quarters_path %></li>
   </ul>
 
   <ul class="admin-menu">
