@@ -1,0 +1,24 @@
+<h3>Payment Portions for <%= @issue.title %> Issue</h3>
+
+<% if @issue_payment_portions.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Quarter</th>
+      <th>Payment Code</th>
+      <th>Amount</th>
+    </tr>
+    <% @issue_payment_portions.each do |issue_payment_portion| %>
+      <tr>
+        <td>
+          <%= link_to issue_payment_portion.apple_payment.quarter.name, [:admin, :reports, issue_payment_portion.apple_payment.quarter] %>
+        </td>
+        <td><%= link_to issue_payment_portion.apple_payment.code, [:admin, :reports, issue_payment_portion.apple_payment] %></td>
+        <td><%= money issue_payment_portion.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

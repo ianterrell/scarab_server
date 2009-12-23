@@ -6,7 +6,6 @@
     <li <%= 'class="selected"' if @controller.controller_name == 'updates' %>><%= link_to "News", admin_updates_path %></li>
     <li <%= 'class="selected"' if @controller.controller_name == 'interviews' %>><%= link_to "Interviews", admin_interviews_path %></li>
   </ul>
-  <div class="clearfix">
-    <%= yield %>
-  </div>
+
+  <%= yield %>
 <% end -%>

@@ -1,0 +1,25 @@
+<% form_for [:admin, :reports, @apple_payment, @issue_payment_portion], :html => { :multipart => true }  do |f| -%>
+  <div>
+    <%= f.label :apple_payment_id %>
+    <br/>
+    <%= f.select :apple_payment_id, apple_payments_options, :include_blank => true %>
+    <%= f.error_message_on :apple_payment_id %>
+  </div>
+  
+  <div>
+    <%= f.label :issue_id %>
+    <br/>
+    <%= f.select :issue_id, issues_options, :include_blank => true %>
+    <%= f.error_message_on :issue_id %>
+  </div>
+  
+  <div>
+    <%= f.label :amount %>
+    <br/>
+    <%= f.text_field :amount, :class => "text" %>
+    <small>in cents!</small>
+    <%= f.error_message_on :amount %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

@@ -1,0 +1,9 @@
+<% inside_layout 'admin' do -%>
+  <ul class="admin-sub-menu">
+    <li <%= 'class="selected"' if @controller.controller_name == 'quarters' %>><%= link_to "Quarters", admin_reports_quarters_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'apple_payments' %>><%= link_to "Apple Payments", admin_reports_apple_payments_path %></li>
+    <li <%= 'class="selected"' if @controller.controller_name == 'issues' %>><%= link_to "Issues", admin_reports_issues_path %></li>
+  </ul>
+
+  <%= yield %>
+<% end -%>

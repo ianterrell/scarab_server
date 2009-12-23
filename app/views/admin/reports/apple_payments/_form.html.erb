@@ -1,0 +1,32 @@
+<% form_for [:admin, :reports, @apple_payment], :html => { :multipart => true }  do |f| -%>
+  <div>
+    <%= f.label :quarter_id %>
+    <br/>
+    <%= f.select :quarter_id, quarters_options, :include_blank => true %>
+    <%= f.error_message_on :quarter_id %>
+  </div>
+
+  <div>
+    <%= f.label :code %>
+    <br/>
+    <%= f.text_field :code, :class => "text" %>
+    <%= f.error_message_on :code %>
+  </div>
+
+  <div>
+    <%= f.label :region %>
+    <br/>
+    <%= f.text_field :region, :class => "text" %>
+    <%= f.error_message_on :region %>
+  </div>
+  
+  <div>
+    <%= f.label :amount %>
+    <br/>
+    <%= f.text_field :amount, :class => "text" %>
+    <small>in cents!</small>
+    <%= f.error_message_on :amount %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

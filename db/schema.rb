@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090924162038) do
+ActiveRecord::Schema.define(:version => 20091222232346) do
+
+  create_table "apple_payments", :force => true do |t|
+    t.integer  "quarter_id"
+    t.string   "code",       :limit => 8
+    t.string   "region",     :limit => 32
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -64,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20090924162038) do
     t.string   "date"
   end
 
+  create_table "issue_payment_portions", :force => true do |t|
+    t.integer  "issue_id"
+    t.integer  "apple_payment_id"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "issues", :force => true do |t|
     t.integer  "number"
     t.datetime "created_at"
@@ -80,6 +97,12 @@ ActiveRecord::Schema.define(:version => 20090924162038) do
 
   create_table "mailing_list_recipients", :force => true do |t|
     t.string   "email",      :limit => 128
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quarters", :force => true do |t|
+    t.string   "name",       :limit => 32
     t.datetime "created_at"
     t.datetime "updated_at"
   end

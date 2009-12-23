@@ -1,0 +1,36 @@
+<h3>
+  <% if @quarter %>
+    Apple Payments for <%= @quarter.name %>
+  <% else %>
+    All Apple Payments
+  <% end %>
+</h3>
+
+<% if @apple_payments.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Quarter</th>
+      <th>Code</th>
+      <th>Amount</th>
+    </tr>
+    <% @apple_payments.each do |apple_payment| %>
+      <tr>
+        <td><%= link_to apple_payment.quarter.name, [:admin, :reports, apple_payment.quarter] %></td>
+        <td><%= link_to apple_payment.code, [:admin, :reports, apple_payment] %></td>
+        <td><%= money apple_payment.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br/>
+
+<% if @quarter %>
+  <%= link_to "New Apple Payment for this Quarter", new_admin_reports_quarter_apple_payment_path(@quarter) %>
+<% else %>
+  <%= link_to "New Apple Payment", new_admin_reports_apple_payment_path %>
+<% end %>

@@ -1,0 +1,24 @@
+<h3>Quarters</h3>
+
+<% if @quarters.empty? %>
+  <p>
+    No quarters.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Payment Count</th>
+    </tr>
+    <% @quarters.each do |quarter| %>
+      <tr>
+        <td><%= link_to quarter.name, [:admin, :reports, quarter] %></td>
+        <td><%= link_to quarter.apple_payments.count, admin_reports_quarter_apple_payments_path(quarter) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br/>
+
+<%= link_to "New Quarter", new_admin_reports_quarter_path %>

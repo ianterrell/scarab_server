@@ -3,20 +3,13 @@
 <% content_for :leftcol do %>
   <ul class="admin-menu" style="margin-top:110px;">
     <li <%= 'class="selected"' if ["issues", "works", "authors", "updates", "interviews"].include?(@controller.controller_name) %>><%= link_to "App Content", admin_issues_path %></li>
+    <li <%= 'class="selected"' if ["submissions"].include?(@controller.controller_name) %>><%= link_to "Submissions (#{Submission.first_reading.count + Submission.second_reading.count})", admin_submissions_path(:state => "first_reading") %></li> 
     <li <%= 'class="selected"' if ["questions", "categories"].include?(@controller.controller_name) %>><%= link_to "FAQ", admin_categories_path %></li>
+    <li <%= 'class="selected"' if ["quarters"].include?(@controller.controller_name) %>><%= link_to "$ Reports", admin_reports_quarters_path %></li>
   </ul>
 
   <ul class="admin-menu">
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'first_reading' || (@submission && !@submission.new_record? && @submission.first_reading?)) %>><%= link_to "Slush (#{Submission.first_reading.count})", admin_submissions_path(:state => "first_reading") %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'second_reading' || (@submission && !@submission.new_record? && @submission.second_reading?)) %>><%= link_to "Slush Plus (#{Submission.second_reading.count})", admin_submissions_path(:state => "second_reading") %></li>          
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'rejected' || (@submission && @submission.rejected?)) %>><%= link_to "Rejected", admin_submissions_path(:state => "rejected") %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'accepted' || (@submission && @submission.accepted?)) %>><%= link_to "Accepted", admin_submissions_path(:state => "accepted") %></li>
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (@controller.action_name == 'unassigned' || (@submission && @submission.unassigned?)) %>><%= link_to "Unassigned", unassigned_admin_submissions_path %>
-    <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && @controller.action_name != 'unassigned' && params[:state].blank? && !@submission %>><%= link_to "All", admin_submissions_path %></li>
-  </ul>
-
-  <ul class="admin-menu">   
-      <li><%= current_user.email %><%= link_to "log out", logout_path, :style => "font-size:12px;" %></li>
+    <li><%= current_user.email %><%= link_to "log out", logout_path, :style => "font-size:12px;" %></li>
   </ul>
 
   <ul class="admin-menu">
@@ -26,7 +19,8 @@
 <% end %>
 
 <% inside_layout 'application' do -%>
-	<%= display_flash :error, :notice, :success %>
+  <%= display_flash :error, :notice, :success %>
+  
   <div id="interior-body">
     <%= yield %>
   </div>

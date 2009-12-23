@@ -2,6 +2,8 @@ class Issue < ActiveRecord::Base
   has_many :works, :order => :position
   has_many :authors, :through => :works
   
+  has_many :issue_payment_portions
+  
   validates_presence_of :number
   validates_uniqueness_of :number
   

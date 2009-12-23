@@ -1,0 +1,24 @@
+<h3>Issues</h3>
+
+<% if @issues.empty? %>
+  <p>
+    No issues.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Payments</th>
+      <th>Revenue</th>
+    </tr>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= link_to issue.title, [:admin, :reports, issue] %></td>
+        <td><%= link_to issue.issue_payment_portions.count, admin_reports_issue_issue_payment_portions_path(issue) %></td>
+        <td><%= money issue.issue_payment_portions.inject(0){|x,y| x + y.amount} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br/>

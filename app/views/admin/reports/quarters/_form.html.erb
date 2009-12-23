@@ -1,0 +1,10 @@
+<% form_for [:admin, :reports, @quarter], :html => { :multipart => true }  do |f| -%>
+  <div>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name, :class => "text" %>
+    <%= f.error_message_on :name %>
+  </div>
+
+  <p><%= submit_tag 'Submit', :class => "button" %></p>
+<% end -%>

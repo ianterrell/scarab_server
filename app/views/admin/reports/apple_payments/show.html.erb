@@ -1,0 +1,26 @@
+<h3><%= @apple_payment.quarter.name %> :: <%= @apple_payment.code %></h3>
+
+<h4>Total: <%= money @apple_payment.amount %></h4>
+<br/>
+<h4>Issue Portions</h4>
+<table>
+  <tr>
+    <th>Issue</th>
+    <th>Amount</th>
+    <th>Actions</th>
+  </tr>
+  <% @apple_payment.issue_payment_portions.each do |portion| %>
+    <tr>
+      <td><%= link_to portion.issue.title, [:admin, :reports, portion.issue] %></td>
+      <td><%= money portion.amount %></td>
+      <td><%= link_to "edit", edit_admin_reports_apple_payment_issue_payment_portion_path(@apple_payment, portion) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "New Portion", new_admin_reports_apple_payment_issue_payment_portion_path(@apple_payment) %>
+
+
+<br/>
+<p>
+  <%= link_to "Edit", edit_admin_reports_apple_payment_path(@apple_payment) %>
+</p>

@@ -44,6 +44,18 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :categories
     admin.resources :questions
     
+    admin.namespace :reports do |reports|
+      reports.resources :quarters do |quarters|
+        quarters.resources :apple_payments
+      end
+      reports.resources :apple_payments do |apple_payments|
+        apple_payments.resources :issue_payment_portions
+      end
+      reports.resources :issues do |issues|
+        issues.resources :issue_payment_portions
+      end
+    end
+    
     admin.resources :submissions, :except => [:destroy], :collection => { :unassigned => :get },
       :member => { 
         :reject_discourage => :post, 

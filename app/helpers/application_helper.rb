@@ -39,6 +39,10 @@ module ApplicationHelper
     end
   end
   
+  def money(money)
+    "$#{money/100}.#{"%02d" % (money % 100)}"
+  end
+  
   def issues_options(options={})
     Issue.all.collect {|p| [ p.title, p.id ] }
   end
@@ -53,5 +57,13 @@ module ApplicationHelper
   
   def users_options(options={})
     User.all.collect {|p| [ p.name, p.id ] }
+  end
+  
+  def quarters_options(options={})
+    Quarter.all.collect {|p| [ p.name, p.id ] }
+  end
+  
+  def apple_payments_options(options={})
+    ApplePayment.all.collect {|p| [ p.code, p.id ] }
   end
 end

@@ -1,5 +1,6 @@
 class Admin::SubmissionsController < Admin::AdminController
   resource_controller
+  layout 'admin_submissions'
 
   def unassigned
     @submissions ||= Submission.unassigned.paginate :page => params[:page]
