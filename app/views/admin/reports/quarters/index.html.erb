@@ -8,12 +8,14 @@
   <table>
     <tr>
       <th>Name</th>
-      <th>Payment Count</th>
+      <th>Payments</th>
+      <th>Revenue</th>
     </tr>
     <% @quarters.each do |quarter| %>
       <tr>
         <td><%= link_to quarter.name, [:admin, :reports, quarter] %></td>
         <td><%= link_to quarter.apple_payments.count, admin_reports_quarter_apple_payments_path(quarter) %></td>
+        <td><%= money quarter.apple_payments.inject(0){|x,y| x + y.amount } %></td>
       </tr>
     <% end %>
   </table>

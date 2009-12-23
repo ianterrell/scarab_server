@@ -1,5 +1,7 @@
 <h3><%= @quarter.name %></h3>
+<h4>Total: <%= money @quarter.apple_payments.inject(0){|x,y| x + y.amount } %></h4>
 
+<br/>
 <h4>Apple Payments</h4>
 <table>
   <tr>
