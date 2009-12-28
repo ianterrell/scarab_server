@@ -47,3 +47,8 @@
 </div>
 
 <div id="content-bottom">&nbsp;</div>
+
+<div style="clear:both; padding-left: 30px;">
+  <%= link_to "&laquo; Previous Issue", issue_path(:number => @previous_issue.number) if @previous_issue %>
+  <%= link_to "Next Issue &raquo;", issue_path(:number => @next_issue.number) if @next_issue %>
+</div>
