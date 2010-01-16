@@ -9,7 +9,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091222232346) do
+ActiveRecord::Schema.define(:version => 20100115235506) do
+
+  create_table "apn_devices", :force => true do |t|
+    t.string   "token",              :default => "", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_registered_at"
+    t.datetime "last_feedback_at"
+  end
+
+  add_index "apn_devices", ["token"], :name => "index_apn_devices_on_token", :unique => true
+
+  create_table "apn_notifications", :force => true do |t|
+    t.integer  "device_id",                      :null => false
+    t.integer  "errors_nb",       :default => 0
+    t.string   "device_language"
+    t.string   "sound"
+    t.string   "alert"
+    t.integer  "badge"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apn_notifications", ["device_id"], :name => "index_apn_notifications_on_device_id"
 
   create_table "apple_payments", :force => true do |t|
     t.integer  "quarter_id"
@@ -97,6 +121,14 @@ ActiveRecord::Schema.define(:version => 20091222232346) do
 
   create_table "mailing_list_recipients", :force => true do |t|
     t.string   "email",      :limit => 128
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "alert"
+    t.integer  "badge",      :default => 1
+    t.boolean  "sound",      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

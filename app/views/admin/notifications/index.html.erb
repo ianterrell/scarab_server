@@ -1,0 +1,31 @@
+<h3>Push Notifications</h3>
+
+<h4>There are currently <b><%= APN::Device.active.count %></b> devices registered to receive notifications.</h4>
+
+<b>Past Notifications</b>
+<% if @notifications.empty? %>
+  <p>
+    No notifications.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th width="500px">Alert</th>
+      <th>Badge</th>
+      <th>Sound</th>
+      <th>Sent At</th>
+    </tr>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.alert %></td>
+        <td><%= notification.badge %></td>
+        <td><%= notification.sound ? "Yes" : "No" %></td>
+        <td><%= notification.created_at.to_s(:short) %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @notifications %>
+<% end %>
+
+<br/>
+<%= link_to "Send New Notification", new_admin_notification_path %>

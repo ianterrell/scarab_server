@@ -1,0 +1,25 @@
+<h3>New Push Notification</h3>
+
+<% form_for [:admin, @notification] do |f| -%>
+  <div>
+    <%= f.label :alert %>
+    <br/>
+    <%= f.text_area :alert, :class => "textarea", :style => "height:40px;" %>
+    <%= f.error_message_on :alert %>
+  </div>
+
+  <div>
+    <%= f.label :badge %>
+    <br/>
+    <%= f.text_field :badge, :class => "text", :size => 1 %>
+    <%= f.error_message_on :badge %>
+  </div>
+
+  <div>
+    <%= f.check_box :sound %> <%= f.label :sound %>
+  </div>
+
+  <p><%= submit_tag 'Send Notification', :class => "button" %></p>
+<% end -%>
+
+<p>This will immediately send this notification out to all active devices, so be careful!  As the number of devices goes up, the time it takes to do this will go up as well, so please be patient and DO NOT click this button twice.</p>

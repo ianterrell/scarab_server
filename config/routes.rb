@@ -44,6 +44,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :categories
     admin.resources :questions
     
+    admin.resources :notifications, :only => [:index, :new, :create]
+    
     admin.namespace :reports do |reports|
       reports.resources :quarters do |quarters|
         quarters.resources :apple_payments
@@ -92,6 +94,7 @@ ActionController::Routing::Routes.draw do |map|
       end
       
       v1.resource :transactions
+      v1.resource :devices, :only => [:create]
       v1.resources :feedbacks
     end
   end
