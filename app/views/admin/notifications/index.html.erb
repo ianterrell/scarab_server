@@ -1,8 +1,9 @@
 <h3>Push Notifications</h3>
 
-<h4>There are currently <b><%= APN::Device.active.count %></b> devices registered to receive notifications.</h4>
+<h4>There are currently <b><%= pluralize APN::Device.active.count, "device" %></b> registered to receive notifications.</h4>
+<p>An additional <b><%= pluralize APN::Device.inactive.count, "device" %></b> are recorded as inactive.</p>
 
-<b>Past Notifications</b>
+<b>Recent Notifications</b>
 <% if @notifications.empty? %>
   <p>
     No notifications.

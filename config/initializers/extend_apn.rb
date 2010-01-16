@@ -6,6 +6,8 @@ require 'apn_on_rails'
 
 class APN::Device < APN::Base
   named_scope :active, :conditions => "((last_feedback_at IS NULL) OR (last_registered_at >= last_feedback_at))"
+  named_scope :inactive, :conditions => "((last_feedback_at IS NOT NULL) AND (last_registered_at < last_feedback_at))"
+  
   def active?
     last_feedback_at.nil? || (last_registered_at >= last_feedback_at)
   end
