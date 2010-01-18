@@ -17,14 +17,14 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = "http://#{SETTINGS[:fqdn]}/reset/#{user.reset_code}"
   end
   
-  protected
-    def setup_email(user)
-      content_type "text/html"
-      @recipients  = user.email
-      from       'Scarab <noreply@scarabmag.com>'
-      headers    "Reply-to" => 'Scarab <noreply@scarabmag.com>'
-      @subject     = "[Scarab] "
-      @sent_on     = Time.now
-      @body[:user] = user
-    end
+protected
+  def setup_email(user)
+    content_type "text/html"
+    @recipients  = user.email
+    from       'Scarab <noreply@scarabmag.com>'
+    headers    "Reply-to" => 'Scarab <noreply@scarabmag.com>'
+    @subject     = "[Scarab] "
+    @sent_on     = Time.now
+    @body[:user] = user
+  end
 end

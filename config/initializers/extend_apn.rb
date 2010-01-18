@@ -11,6 +11,10 @@ class APN::Device < APN::Base
   def active?
     last_feedback_at.nil? || (last_registered_at >= last_feedback_at)
   end
+  
+  def ok_to_email=(x)
+    write_attribute('ok_to_email', x == 1)
+  end
 end
 
 module APN
