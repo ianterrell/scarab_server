@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'main'
   map.about "/about", :controller => 'main', :action => "who"
   map.dashboard '/dashboard', :controller => 'dashboard'
+  
+  map.giveaways "/giveaways", :controller => "giveaways", :action => "index"
 
   ###
   # Sign up, sign in, sign out

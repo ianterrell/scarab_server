@@ -1,0 +1,41 @@
+<a href="http://itunes.com/apps/scarab" class="app-store-interior">Available in the iPhone App Store</a>
+
+<div id="issue-header" class="interior-header">
+	<div id="header-text">
+		<h3>Free iTunes Gift Cards!</h3>
+		<span>Because we love you.  Also, because we want you to read a poem.</span>
+	</div>
+</div>
+
+<div id="interior-body">
+  <p class="large-text"><b>$150</b> on February 14th, and <b>$10 a week</b> for as long as we can.
+  <br/>We believe exposure to the arts is vital to one's quality of life, and <i>Scarab</i> brings it straight to you.  We think it's wonderful, and we want to spread the word.</p>
+    	
+	<h4>Twitter Promotion</h4>
+	<p>On February 14th we're holding a drawing for a $100 gift card (and two $25 second and third prize gift cards).  All you have to do to enter is use the form below to automatically follow us on Twitter and tweet about us. Keep following us until the drawing and you could win! And don't worry, we don't store your password.</p>
+	
+	<% form_tag session_path do -%>
+    <table id="login-table">
+      <tr>
+        <td><%= label_tag 'twitter_username' %></td>
+        <td><%= label_tag 'password' %></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;"><%= text_field_tag 'twitter_username', nil, :class => "text" %></td>
+        <td style="vertical-align:top;"><%= password_field_tag 'password', nil, :class => "text"  %></td>
+        <td style="vertical-align:top;"><%= submit_tag 'Go!', :class => "button", :style => "margin-top:2px;"%></td>
+      </tr>
+    </table>
+    <p>By clicking "Go!" you'll automatically follow us and tweet the following:</p>
+    <p class="promotion-tweet">
+      I just entered to win a $100 iTunes gift card from <%= link_to "@scarabmag", "http://twitter.com/scarabmag" %>, 
+      <br/>a literary magazine for your iPhone and iPod touch!
+      <br/<%= link_to giveaways_url, giveaways_url %>
+    </p>
+  <% end %>
+  
+	
+	<h4 style="clear:both;">Weekly Drawings!  Download Scarab and win.</h4>
+	<p>Every week we'll pick someone who's downloaded Scarab and email them a free $10 gift card.  The app is free and there's no obligation to buy anything.  Just <%= link_to "download the app", "http://itunes.com/apps/scarab" %>, tap the "More..." tab on the bottom, and choose "Free iTunes Gift Cards."  Use that form to send us your email so that we can contact you if you win, make sure you allow us to send push notifications for when we publish new issues, and as long as you have it installed you'll have a chance to win that free $10 card every single week. Come for the free gift cards; stay for a poem.</p>
+</div>
