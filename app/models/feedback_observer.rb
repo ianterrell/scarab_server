@@ -4,7 +4,7 @@ class FeedbackObserver < ActiveRecord::Observer
   end
 
   # Really just for initial feedback that's already been received
-  def after_save(user)
+  def after_save(feedback)
     FeedbackMailer.deliver_feedback_received feedback
   end
 end
