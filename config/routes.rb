@@ -5,8 +5,6 @@ ActionController::Routing::Routes.draw do |map|
   map.about "/about", :controller => 'main', :action => "who"
   map.dashboard '/dashboard', :controller => 'dashboard'
   
-  map.giveaways "/giveaways", :controller => "giveaways", :action => "index"
-
   ###
   # Sign up, sign in, sign out
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -22,6 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   ###
   # Issues
   map.issue '/issues/:number', :controller => "issues", :action => "show"
+  
+  # Giveaways!
+  map.resources :giveaways, :only => [:index, :create], :collection => { :thanks => :get }
   
   ###
   # Mailing List

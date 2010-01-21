@@ -1,0 +1,20 @@
+<% form_tag giveaways_path, :method => :post do -%>
+  <table id="login-table">
+    <tr>
+      <td><%= label_tag 'username', "Twitter username" %></td>
+      <td><%= label_tag 'password' %></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;"><%= text_field_tag 'username', params[:username], :class => "text" %></td>
+      <td style="vertical-align:top;"><%= password_field_tag 'password', nil, :class => "text"  %></td>
+      <td style="vertical-align:top;"><%= submit_tag 'Go!', :class => "button", :style => "margin-top:2px;"%></td>
+    </tr>
+  </table>
+  <p>By clicking "Go!" you'll automatically follow us and tweet the following:</p>
+  <p class="promotion-tweet">
+    I just entered to win a $100 iTunes gift card from <%= link_to "@scarabmag", "http://twitter.com/scarabmag" %>, 
+    <br/>a literary magazine for your iPhone and iPod touch!
+    <br/<%= link_to giveaways_url, giveaways_url %>
+  </p>
+<% end %>
