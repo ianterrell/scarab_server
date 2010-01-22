@@ -1,7 +1,7 @@
 class GiveawaysController < ApplicationController
   layout "interior"
   
-  ssl_required :index, :create if Rails.env.production?
+  ssl_required :create if Rails.env.production?
   
   caches_page :index
   def index; end
