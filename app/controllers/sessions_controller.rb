@@ -1,6 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
   layout 'interior'
+  ssl_required :new, :create if Rails.env.production?
   
   # render new.rhtml
   def new

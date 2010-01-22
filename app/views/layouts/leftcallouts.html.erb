@@ -12,6 +12,8 @@
 	</div>
 <% end %>
 
-<% inside_layout 'application' do -%>
-   <%= yield %>
- <% end -%>
+<% content_for :main_content do -%>
+  <%= yield(:content) || yield %>
+<% end -%>
+
+<%= render :file => "layouts/application" %>

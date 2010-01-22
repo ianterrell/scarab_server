@@ -1,4 +1,4 @@
-<% inside_layout 'admin' do -%>
+<% content_for :admin_content do -%>
   <ul class="admin-sub-menu">
     <li <%= 'class="selected"' if @controller.controller_name == 'quarters' %>><%= link_to "Quarters", admin_reports_quarters_path %></li>
     <li <%= 'class="selected"' if @controller.controller_name == 'apple_payments' %>><%= link_to "Apple Payments", admin_reports_apple_payments_path %></li>
@@ -7,3 +7,5 @@
 
   <%= yield %>
 <% end -%>
+
+<%= render :file => "layouts/admin" %>

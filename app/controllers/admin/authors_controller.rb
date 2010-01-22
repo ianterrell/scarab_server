@@ -12,10 +12,6 @@ class Admin::AuthorsController < Admin::AdminController
   end
   
 private
-  def model_name
-    'author'
-  end
-
   def collection
     @collection ||= end_of_association_chain.paginate :all, :page => params[:page]
   end

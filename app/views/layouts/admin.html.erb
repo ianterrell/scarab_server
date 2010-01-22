@@ -19,10 +19,12 @@
   </ul>
 <% end %>
 
-<% inside_layout 'application' do -%>
+<% content_for :main_content do -%>
   <%= display_flash :error, :notice, :success %>
   
   <div id="interior-body">
-    <%= yield %>
+    <%= yield(:admin_content) || yield %>
   </div>
 <% end -%>
+
+<%= render :file => "layouts/application" %>

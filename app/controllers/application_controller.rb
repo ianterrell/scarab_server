@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   include AuthenticatedSystem
   
+  include SslRequirement
+  
   before_filter :get_current_issue
 
   # Scrub sensitive parameters from your log

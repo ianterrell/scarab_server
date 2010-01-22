@@ -16,12 +16,16 @@ protected
     controller_name.singularize
   end
   
+  def collection_name
+    controller_name
+  end
+  
   def object_url
-    [:admin, object]
+    [:admin, instance_variable_get(:"@#{model_name}")]
   end
   
   def collection_url
-    [:admin, collection]
+    [:admin, collection_name.to_sym]
   end
 
   def self.is_publishable
