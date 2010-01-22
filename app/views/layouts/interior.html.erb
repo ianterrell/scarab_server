@@ -1,5 +1,7 @@
 <% @main_content_class = "interior" %>
-<% inside_layout 'leftcallouts' do -%>
+<% content_for :content do -%>
 	<%= display_flash :error, :notice, :success %>
-  <%= yield %>
- <% end -%>
+  <%= yield(:interior_content) || yield %>
+<% end -%>
+ 
+<%= render :file => "layouts/leftcallouts" %>

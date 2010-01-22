@@ -16,7 +16,9 @@
 </ul>
 <% end %>
 
-<% inside_layout 'application' do -%>
+<% content_for :main_content do -%>
 	<%= display_flash :error, :notice, :success %>
-  <%= yield %>
+  <%= yield(:content) || yield %>
 <% end -%>
+
+<%= render :file => "layouts/application" %>

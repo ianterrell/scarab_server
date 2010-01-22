@@ -1,4 +1,4 @@
-<% inside_layout 'admin' do -%>
+<% content_for :admin_content do -%>
   <ul class="admin-sub-menu">
     <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'first_reading' || (@submission && !@submission.new_record? && @submission.first_reading?)) %>><%= link_to "Slush (#{Submission.first_reading.count})", admin_submissions_path(:state => "first_reading") %></li>
     <li <%= 'class="selected"' if @controller.controller_name == 'submissions' && (params[:state] == 'second_reading' || (@submission && !@submission.new_record? && @submission.second_reading?)) %>><%= link_to "Slush Plus (#{Submission.second_reading.count})", admin_submissions_path(:state => "second_reading") %></li>          
@@ -10,3 +10,5 @@
 
   <%= yield %>
 <% end -%>
+
+<%= render :file => "layouts/admin" %>
