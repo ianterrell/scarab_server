@@ -1,0 +1,22 @@
+<h3>Authors</h3>
+
+<% if @authors.empty? %>
+  <p>
+    No authors.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Royalty Payments</th>
+      <th>Total</th>
+    </tr>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= link_to author.name, [:admin, :reports, author] %></td>
+        <td><%= link_to author.royalty_payments.count, admin_reports_author_royalty_payments_path(author) %></td>
+        <td><%= money author.royalty_payments.total %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

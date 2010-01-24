@@ -1,0 +1,38 @@
+<h3>
+  <% if @quarter %>
+    Royalty Payments for <%= @quarter.name %>
+  <% elsif @author %>
+    Royalty Payments for <%= @author.name %>
+  <% else %>
+    All Royalty Payments
+  <% end %>
+</h3>
+
+<% if @royalty_payments.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Quarter</th>
+      <th>Amount</th>
+      <th>Paid On</th>
+    </tr>
+    <% @royalty_payments.each do |royalty_payment| %>
+      <tr>
+        <td><%= link_to royalty_payment.author.name, [:admin, :reports, royalty_payment.author] %></td>
+        <td><%= link_to royalty_payment.quarter.name, [:admin, :reports, royalty_payment.quarter] %></td>
+        <td><%= money royalty_payment.amount %></td>
+        <td>
+          <% if royalty_payment.paid? %>
+            <%= royalty_payment.paid_at.to_s :short %>
+          <% else %>
+            <%= link_to "Mark Paid", mark_paid_admin_reports_royalty_payment_path(royalty_payment), :method => :post %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

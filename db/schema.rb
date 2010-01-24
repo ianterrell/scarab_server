@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118003853) do
+ActiveRecord::Schema.define(:version => 20100124191755) do
 
   create_table "apn_devices", :force => true do |t|
     t.string   "token",              :default => "",   :null => false
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20100118003853) do
   end
 
   create_table "feedbacks", :force => true do |t|
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -150,6 +150,15 @@ ActiveRecord::Schema.define(:version => 20100118003853) do
     t.datetime "updated_at"
   end
 
+  create_table "royalty_payments", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "quarter_id"
+    t.integer  "amount",     :default => 0
+    t.datetime "paid_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submissions", :force => true do |t|
     t.integer  "user_id"
     t.string   "state",                 :limit => 64
@@ -177,6 +186,12 @@ ActiveRecord::Schema.define(:version => 20100118003853) do
     t.string   "version_external_identifier"
     t.boolean  "apple_validated"
     t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "twitter_giveaway_entries", :force => true do |t|
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

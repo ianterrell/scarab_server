@@ -47,8 +47,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :notifications, :only => [:index, :new, :create]
     
     admin.namespace :reports do |reports|
-      reports.resources :quarters do |quarters|
+      reports.resources :quarters, :member => { :generate_royalty_payments => :post } do |quarters|
         quarters.resources :apple_payments
+        quarters.resources :royalty_payments
       end
       reports.resources :apple_payments do |apple_payments|
         apple_payments.resources :issue_payment_portions
@@ -56,6 +57,10 @@ ActionController::Routing::Routes.draw do |map|
       reports.resources :issues do |issues|
         issues.resources :issue_payment_portions
       end
+      reports.resources :authors do |authors|
+        authors.resources :royalty_payments
+      end
+      reports.resources :royalty_payments, :member => { :mark_paid => :post }
     end
     
     admin.resources :submissions, :except => [:destroy], :collection => { :unassigned => :get },

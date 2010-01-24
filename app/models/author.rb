@@ -2,6 +2,11 @@ class Author < ActiveRecord::Base
   has_many :works
   has_many :issues, :through => :works
   belongs_to :user
+  has_many :royalty_payments do
+    def total
+      self.inject(0) { |x,y| x + y.amount }
+    end
+  end
   
   has_attached_file :photo, :styles => { :large => "128x128>", :medium => "64x64>", :web => "52x52>", :thumb => "32x32>" }
   

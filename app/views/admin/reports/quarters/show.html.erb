@@ -3,15 +3,42 @@
 
 <br/>
 <h4>Apple Payments</h4>
-<table>
-  <tr>
-    <th>Code</th>
-    <th>Amount</th>
-  </tr>
-  <% @quarter.apple_payments.each do |apple_payment| %>
+<% if @quarter.apple_payments.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
     <tr>
-      <td><%= link_to apple_payment.code, [:admin, :reports, apple_payment] %></td>
-      <td><%= money apple_payment.amount %></td>
+      <th>Code</th>
+      <th>Amount</th>
     </tr>
-  <% end %>
-</table>
+    <% @quarter.apple_payments.each do |apple_payment| %>
+      <tr>
+        <td><%= link_to apple_payment.code, [:admin, :reports, apple_payment] %></td>
+        <td><%= money apple_payment.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br/>
+<h4>Royalty Payments</h4>
+<% if @quarter.royalty_payments.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Amount</th>
+    </tr>
+    <% @quarter.royalty_payments.each do |royalty_payment| %>
+      <tr>
+        <td><%= link_to royalty_payment.author.name, [:admin, :reports, royalty_payment.author] %></td>
+        <td><%= money royalty_payment.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

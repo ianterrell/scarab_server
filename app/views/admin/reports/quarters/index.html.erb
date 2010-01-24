@@ -10,12 +10,22 @@
       <th>Name</th>
       <th>Payments</th>
       <th>Revenue</th>
+      <th>Royalties?</th>
     </tr>
     <% @quarters.each do |quarter| %>
       <tr>
         <td><%= link_to quarter.name, [:admin, :reports, quarter] %></td>
         <td><%= link_to quarter.apple_payments.count, admin_reports_quarter_apple_payments_path(quarter) %></td>
-        <td><%= money quarter.apple_payments.inject(0){|x,y| x + y.amount } %></td>
+        <td><%= money quarter.apple_payments.total %></td>
+        <td>
+          <% if quarter.apple_payments.empty? || quarter.apple_payments.total == 0 %>
+            None
+          <% elsif quarter.royalty_payments.empty? %>
+            <%= link_to "Generate", generate_royalty_payments_admin_reports_quarter_path(quarter), :method => :post %>
+          <% else %>
+            <%= link_to money(quarter.royalty_payments.total), admin_reports_quarter_royalty_payments_path(quarter) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
