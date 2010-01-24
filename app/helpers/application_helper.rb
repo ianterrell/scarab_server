@@ -40,7 +40,7 @@ module ApplicationHelper
   end
   
   def money(money)
-    "$#{money/100}.#{"%02d" % (money % 100)}"
+    StringUtils.money money
   end
   
   def issues_options(options={})

@@ -1,0 +1,27 @@
+<h3><%= @author.name %></h3>
+
+<h4>Royalty Payments</h4>
+
+<% if @author.royalty_payments.empty? %>
+  <p>
+    No payments.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Quarter</th>
+      <th>Amount</th>
+    </tr>
+    <% @author.royalty_payments.each do |royalty_payment| %>
+      <tr>
+        <td>
+          <%= link_to royalty_payment.quarter.name, [:admin, :reports, royalty_payment.quarter] %>
+        </td>
+        <td><%= money royalty_payment.amount %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br/>
+<% end %>
+
+<p><%= link_to "View Author Content", [:admin, @author] %></p>

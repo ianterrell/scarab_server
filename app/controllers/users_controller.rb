@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   demand "editor", :only => [:suspend, :unsuspend, :destroy, :purge]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
 
+  ssl_required :create, :new if Rails.env.production?
+
   layout 'interior'
 
   # render new.rhtml

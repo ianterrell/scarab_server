@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118154644) do
+ActiveRecord::Schema.define(:version => 20100124191755) do
 
   create_table "apn_devices", :force => true do |t|
     t.string   "token",              :default => "",   :null => false
@@ -146,6 +146,15 @@ ActiveRecord::Schema.define(:version => 20100118154644) do
     t.text     "answer"
     t.integer  "position"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "royalty_payments", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "quarter_id"
+    t.integer  "amount",     :default => 0
+    t.datetime "paid_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

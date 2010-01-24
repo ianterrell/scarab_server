@@ -22,7 +22,7 @@
 </head>
 <body>
 	
-	<a href="<%= root_path %>" id="logo">Scarab Magazine</a>
+	<a href="<%= root_url(:protocol => 'http') %>" id="logo">Scarab Magazine</a>
 	
   <div id="container">
 		
@@ -36,11 +36,11 @@
 		
 		<div id="footer">
 			<ul>
-				<li><a href="<%= root_path %>">Home</a> |</li>
-				<li><a href="<%= about_path %>">About</a> |</li>
-				<li><a href="<%= giveaways_path %>">Giveaways</a> |</li>
-				<li><a href="<%= issue_path :number => @current_issue.number %>">Current Issue</a> |</li>
-				<li><a href="<%= submit_work_path %>">Submit Work</a></li>
+				<li><a href="<%= root_url(:protocol => 'http') %>">Home</a> |</li>
+				<li><a href="<%= about_url(:protocol => 'http') %>">About</a> |</li>
+				<li><a href="<%= giveaways_url(:protocol => 'http')%>">Giveaways</a> |</li>
+				<li><a href="<%= issue_url(:number => @current_issue.number, :protocol => 'http') %>">Current Issue</a> |</li>
+				<li><a href="<%= submit_work_url(:protocol => 'http') %>">Submit Work</a></li>
 			</ul>
 			
 			&copy; 2009 Old Brick Press, LLC. All Rights Reserved.
