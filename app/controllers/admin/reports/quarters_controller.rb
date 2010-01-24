@@ -18,4 +18,9 @@ class Admin::Reports::QuartersController < Admin::Reports::ReportsController
       redirect_to admin_reports_quarters_path
     end
   end
+  
+private
+  def collection
+    @collection ||= end_of_association_chain.paginate :all, :page => params[:page], :per_page => 20, :order => "created_at desc"
+  end
 end

@@ -11,4 +11,9 @@ class Admin::Reports::RoyaltyPaymentsController < Admin::Reports::ReportsControl
     end
     redirect_to :back
   end
+  
+private
+  def collection
+    @collection ||= end_of_association_chain.paginate :all, :include => [:author, :quarter], :page => params[:page], :per_page => 20, :order => "quarters.created_at desc, authors.name"
+  end
 end
