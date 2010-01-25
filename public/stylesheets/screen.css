@@ -177,11 +177,6 @@ table th, td { border: 1px solid #ccc; padding: 5px;}
 .fieldWithErrors input, .fieldWithErrors textarea { background-color: #FFD1D1; border: 2px solid #FF6B6B; }
 .fieldWithErrors input:focus { background-color: #FFD1D1; border: 2px solid red; }
 
-/* Cache */
-.cache-group { background:#ccc; padding: 10px; margin-bottom: 20px;}
-.cache-group .subgroup { background: #bbb; padding: 10px;}
-.cache-item { margin: 5px; float: left;}
-
 /* -------------------- Flash ----------------------*/
 .flash{ padding:10px 10px 10px 30px; margin:15px 15px 15px 30px; }
 .flash a{ display:block; width:15px; float:right; text-decoration:none; text-align:center; }

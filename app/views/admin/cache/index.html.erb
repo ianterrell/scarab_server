@@ -1,39 +1,7 @@
 <h3>Cache Control</h3>
 
-<div class="cache-group">
-  <h4>All Web Content</h4><%= expire_cache_button "all_web_content" %>
-  <div class="subgroup">
-    <div class="cache-item">
-      <h4><%= link_to "Homepage", root_path %></h4><%= expire_cache_button "homepage" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Issue.published.count %> Issue Pages</h4><%= expire_cache_button "issue_pages" %>
-    </div>
-    <div style="clear:both;"></div>
-  </div>
-</div>
+<% form_tag :action => "expire" do %>
+  <%= submit_tag "Expire Cache", :class => "button", :style => "margin:0px;" %>
+<% end %>
 
-<div class="cache-group">
-  <h4>All API Content</h4><%= expire_cache_button "all_api_content" %>
-  <div class="subgroup">
-    <div class="cache-item">
-      <h4><%= Issue.published.count %> Issue Authors</h4><%= expire_cache_button "api_issue_authors" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Author.count %> Authors</h4><%= expire_cache_button "api_authors" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Interview.published.count %> Interview Footnotes</h4><%= expire_cache_button "api_interview_footnotes" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Interview.published.count %> Interviews</h4><%= expire_cache_button "api_interviews" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Issue.published.count %> Issues</h4><%= expire_cache_button "api_issues" %>
-    </div>
-    <div class="cache-item">
-      <h4><%= Update.published.count %> Updates</h4><%= expire_cache_button "api_updates" %>
-    </div>
-    <div style="clear:both;"></div>
-  </div>
-</div>
+<p>This will delete all cached files so that they'll be regenerated on their next request.  This is useful for when new issues are published.  So that they actually get, you know, published.</p>
